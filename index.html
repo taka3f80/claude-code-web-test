@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f5;
+    --surface: #ffffff;
+    --ink: #2b2a28;
+    --ink-soft: #8a857e;
+    --line: #ece8e2;
+    --accent: #c5533a;
+    --accent-soft: #f4e4df;
+    --break: #4a7c74;
+    --break-soft: #e0ece9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.6s ease;
+  }
+
+  body.break-mode {
+    background: #f4f9f7;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 40px 36px 36px;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 8px 32px rgba(0,0,0,0.04);
+  }
+
+  .mode {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: color 0.4s ease, background 0.4s ease;
+  }
+
+  body.break-mode .mode {
+    color: var(--break);
+    background: var(--break-soft);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .time {
+    font-family: 'JetBrains Mono', 'SF Mono', 'Menlo', monospace;
+    font-size: clamp(72px, 18vw, 96px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin: 28px 0 8px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cycle {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  .cycle strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink);
+    padding: 12px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    min-width: 96px;
+  }
+
+  button:hover {
+    border-color: var(--ink-soft);
+  }
+
+  button:active {
+    transform: translateY(1px);
+  }
+
+  button.primary {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+
+  button.primary:hover {
+    background: #1a1918;
+    border-color: #1a1918;
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  body.break-mode button:focus-visible {
+    outline-color: var(--break);
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="mode" id="mode">
+      <span class="dot"></span>
+      <span id="modeLabel">Focus</span>
+    </div>
+    <div class="time" id="time">25:00</div>
+    <div class="cycle">Session <strong id="cycleCount">1</strong></div>
+    <div class="controls">
+      <button class="primary" id="toggle">Start</button>
+      <button id="reset">Reset</button>
+    </div>
+  </main>
+
+<script>
+  const WORK_MIN = 25;
+  const BREAK_MIN = 5;
+
+  const timeEl = document.getElementById('time');
+  const modeLabel = document.getElementById('modeLabel');
+  const cycleEl = document.getElementById('cycleCount');
+  const toggleBtn = document.getElementById('toggle');
+  const resetBtn = document.getElementById('reset');
+
+  let mode = 'work';
+  let remaining = WORK_MIN * 60;
+  let cycle = 1;
+  let running = false;
+  let endAt = 0;
+  let tickId = null;
+  let audioCtx = null;
+
+  function fmt(sec) {
+    const m = Math.floor(sec / 60).toString().padStart(2, '0');
+    const s = Math.floor(sec % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  }
+
+  function render() {
+    timeEl.textContent = fmt(remaining);
+    modeLabel.textContent = mode === 'work' ? 'Focus' : 'Break';
+    cycleEl.textContent = cycle;
+    document.title = `${fmt(remaining)} — ${mode === 'work' ? 'Focus' : 'Break'}`;
+    document.body.classList.toggle('break-mode', mode === 'break');
+  }
+
+  function beep() {
+    try {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      const ctx = audioCtx;
+      const now = ctx.currentTime;
+
+      // Three short beeps
+      for (let i = 0; i < 3; i++) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = 880;
+        const start = now + i * 0.35;
+        const stop = start + 0.18;
+        gain.gain.setValueAtTime(0, start);
+        gain.gain.linearRampToValueAtTime(0.25, start + 0.02);
+        gain.gain.linearRampToValueAtTime(0, stop);
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(start);
+        osc.stop(stop + 0.02);
+      }
+    } catch (e) {
+      // audio unavailable — silent fallback
+    }
+  }
+
+  function switchMode() {
+    if (mode === 'work') {
+      mode = 'break';
+      remaining = BREAK_MIN * 60;
+    } else {
+      mode = 'work';
+      remaining = WORK_MIN * 60;
+      cycle += 1;
+    }
+  }
+
+  function tick() {
+    const now = Date.now();
+    remaining = Math.max(0, Math.round((endAt - now) / 1000));
+    if (remaining <= 0) {
+      beep();
+      switchMode();
+      endAt = Date.now() + remaining * 1000;
+    }
+    render();
+  }
+
+  function start() {
+    running = true;
+    endAt = Date.now() + remaining * 1000;
+    toggleBtn.textContent = 'Pause';
+    // Prime audio on first user gesture
+    if (!audioCtx) {
+      try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+    }
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    tickId = setInterval(tick, 250);
+  }
+
+  function pause() {
+    running = false;
+    toggleBtn.textContent = 'Start';
+    clearInterval(tickId);
+    tickId = null;
+  }
+
+  function reset() {
+    pause();
+    mode = 'work';
+    cycle = 1;
+    remaining = WORK_MIN * 60;
+    render();
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    if (running) pause(); else start();
+  });
+  resetBtn.addEventListener('click', reset);
+
+  render();
+</script>
+</body>
+</html>
