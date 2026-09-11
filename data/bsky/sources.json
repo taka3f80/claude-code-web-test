@@ -1,0 +1,14 @@
+{
+  "postsPerRun": 1,
+  "postsPerDay": 6,
+  "perSourceMinHours": 6,
+  "measureAfterHours": 12,
+  "explorationDays": 3,
+  "sources": [
+    { "id": "arxiv", "enabled": true, "params": { "category": "cs.AI", "max": 10 } },
+    { "id": "jma-quake", "enabled": true, "params": { "minIntensity": "3", "withinHours": 24 } },
+    { "id": "wikipedia-mostread", "enabled": true, "params": { "lang": "ja" } },
+    { "id": "hackernews", "enabled": true, "params": { "minScore": 100, "lookAt": 10 } },
+    { "id": "github-new-repos", "enabled": true, "params": { "days": 7, "minStars": 50 } }
+  ]
+}

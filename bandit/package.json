@@ -1,0 +1,12 @@
+{
+  "name": "bsky-source-bandit",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "measure": "node src/run-measure.mjs",
+    "post": "node src/run-post.mjs",
+    "report": "node src/run-report.mjs"
+  }
+}

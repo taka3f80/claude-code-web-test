@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ArXiv Query</title>
+  <entry>
+    <id>http://arxiv.org/abs/2609.01234v1</id>
+    <published>2026-09-10T17:59:12Z</published>
+    <title>Bandits &amp; Beyond: A Study of
+  Exploration</title>
+    <summary>...</summary>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2609.00001v2</id>
+    <published>2026-09-10T17:58:00Z</published>
+    <title>Second Paper</title>
+  </entry>
+</feed>
