@@ -1,6 +1,6 @@
 const PDS = process.env.BSKY_PDS ?? 'https://bsky.social';
 const PUBLIC_API = 'https://public.api.bsky.app';
-const UA = 'bsky-source-bandit/0.1';
+const UA = 'kazamidori-bot/0.1 (+https://github.com/taka3f80/claude-code-web-test)';
 
 async function xrpc(base, nsid, { method = 'GET', params, body, jwt, fetchImpl = fetch } = {}) {
   const url = new URL(`${base}/xrpc/${nsid}`);
