@@ -56,7 +56,7 @@ for (const sourceId of ranking.order) {
   const cfg = config.sources.find((s) => s.id === sourceId);
   const mod = SOURCES[sourceId];
   if (!mod) { run.results.push({ sourceId, outcome: 'unknown-source' }); continue; }
-  if (!dryRun && onCooldown(posts, sourceId, now, config.perSourceMinHours)) { run.results.push({ sourceId, outcome: 'cooldown' }); continue; }
+  if (!dryRun && onCooldown(posts, sourceId, now, config.perSourceMinHours)) { console.log(`[post] ${sourceId}: cooldown`); run.results.push({ sourceId, outcome: 'cooldown' }); continue; }
 
   let candidates;
   try {
@@ -67,7 +67,11 @@ for (const sourceId of ranking.order) {
     continue;
   }
   const item = candidates.find((c) => !seen.has(c.itemId));
-  if (!item) { run.results.push({ sourceId, outcome: 'no-fresh-item', candidates: candidates.length }); continue; }
+  if (!item) {
+    console.log(`[post] ${sourceId}: no fresh item (${candidates.length} candidate(s), all posted before or none available)`);
+    run.results.push({ sourceId, outcome: 'no-fresh-item', candidates: candidates.length });
+    continue;
+  }
 
   const { body, url } = mod.format(item, cfg.params ?? {});
   const { text, facets } = buildPost({ body, url });
