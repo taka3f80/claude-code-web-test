@@ -1,5 +1,7 @@
 export const id = 'jma-quake';
 export const name = '気象庁 地震情報';
+/** Post language tags: Japanese framing; content language where it differs. */
+export const langs = ['ja'];
 
 const INTENSITY = { 1: 1, 2: 2, 3: 3, 4: 4, '5-': 5, '5+': 6, '6-': 7, '6+': 8, 7: 9 };
 const LIST_URL = 'https://www.jma.go.jp/bosai/quake/data/list.json';

@@ -1,5 +1,7 @@
 export const id = 'github-new-repos';
 export const name = 'GitHub 今週の新規リポジトリ';
+/** Post language tags: Japanese framing; content language where it differs. */
+export const langs = ['ja', 'en'];
 
 export function toItems(result) {
   return (result?.items ?? []).map((r) => ({

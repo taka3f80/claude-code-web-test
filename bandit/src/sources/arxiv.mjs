@@ -2,6 +2,8 @@ import { decodeEntities, collapseWs } from '../lib/text.mjs';
 
 export const id = 'arxiv';
 export const name = 'arXiv 新着';
+/** Post language tags: Japanese framing; content language where it differs. */
+export const langs = ['ja', 'en'];
 
 export function parseArxiv(xml) {
   const out = [];

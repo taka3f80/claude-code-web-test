@@ -18,7 +18,8 @@ import { login, createPost, postUrl } from './lib/bluesky.mjs';
 const args = new Set(process.argv.slice(2));
 const handle = process.env.BSKY_HANDLE;
 const password = process.env.BSKY_APP_PASSWORD;
-const dryRun = args.has('--dry-run') || process.env.DRY_RUN === '1' || !handle || !password;
+const missing = [!handle && 'BSKY_HANDLE', !password && 'BSKY_APP_PASSWORD'].filter(Boolean);
+const dryRun = args.has('--dry-run') || process.env.DRY_RUN === '1' || missing.length > 0;
 
 const config = { postsPerRun: 1, postsPerDay: 6, perSourceMinHours: 6, explorationDays: 3, sources: [], ...readJson('sources.json', {}) };
 const state = readJson('bandit-state.json', emptyState());
@@ -30,7 +31,7 @@ const today = dateJst(now);
 const ctx = makeCtx({ now });
 
 const postedToday = posts.filter((p) => p.date === today && !p.dryRun);
-if (postedToday.length >= config.postsPerDay && !args.has('--force')) {
+if (!dryRun && postedToday.length >= config.postsPerDay && !args.has('--force')) {
   console.log(`[post] quota for ${today} already met (${postedToday.length}/${config.postsPerDay}); nothing to do`);
   process.exit(0);
 }
@@ -41,18 +42,21 @@ console.log(`[post] ${today} order=${ranking.order.join(',')} forced=${ranking.f
 
 let session = null;
 if (!dryRun) session = await login({ handle, password });
-else console.log('[post] DRY RUN: nothing will be posted or recorded');
+else {
+  console.log('[post] DRY RUN: nothing will be posted or recorded; every enabled source is tried so all templates can be checked');
+  if (missing.length) console.warn(`[post] WARNING: missing secret(s): ${missing.join(', ')} -> scheduled runs will not post until set`);
+}
 
 const run = { date: today, at: now.toISOString(), dryRun, order: ranking.order, forced: ranking.forced, draws: ranking.draws, results: [] };
 const newPosts = [];
-const remaining = () => Math.min(config.postsPerRun, config.postsPerDay - postedToday.length) - newPosts.length;
+const remaining = () => (dryRun ? Infinity : Math.min(config.postsPerRun, config.postsPerDay - postedToday.length) - newPosts.length);
 
 for (const sourceId of ranking.order) {
   if (remaining() <= 0) break;
   const cfg = config.sources.find((s) => s.id === sourceId);
   const mod = SOURCES[sourceId];
   if (!mod) { run.results.push({ sourceId, outcome: 'unknown-source' }); continue; }
-  if (onCooldown(posts, sourceId, now, config.perSourceMinHours)) { run.results.push({ sourceId, outcome: 'cooldown' }); continue; }
+  if (!dryRun && onCooldown(posts, sourceId, now, config.perSourceMinHours)) { run.results.push({ sourceId, outcome: 'cooldown' }); continue; }
 
   let candidates;
   try {
@@ -76,7 +80,7 @@ for (const sourceId of ranking.order) {
   };
   if (!dryRun) {
     try {
-      const r = await createPost(session, { text, facets, createdAt: new Date().toISOString() });
+      const r = await createPost(session, { text, facets, langs: mod.langs ?? ['ja'], createdAt: new Date().toISOString() });
       record.uri = r.uri; record.cid = r.cid; record.postUrl = postUrl(session.handle, r.uri);
     } catch (e) {
       console.warn(`[post] ${sourceId}: createPost failed: ${e.message}`);
