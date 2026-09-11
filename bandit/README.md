@@ -47,7 +47,7 @@ Thompson sampling で次回の配分を更新する。LLM は日次ループに�
 1. Bluesky でアカウントを作り、設定 → App Passwords でアプリパスワードを発行する。
 2. リポジトリの Secrets に `BSKY_HANDLE`（`kazamidori-bot.bsky.social`）と `BSKY_APP_PASSWORD` を登録する。
 3. Actions の `bsky-source-bandit` を `dry_run = true` で手動実行し、投稿文が出ることを確認する。
-4. 以後は JST 8, 11, 14, 17, 20, 23 時に自動で回り（1 回 1 投稿）、データファイルはワークフローが同じブランチにコミットする。
+4. 以後は JST 8:17, 11:17, 14:17, 17:17, 20:17, 23:17 に自動で回り（1 回 1 投稿）、データファイルはワークフローが同じブランチにコミットする。
    間隔を変えるにはワークフローの cron と `sources.json` の `postsPerDay` を合わせて変える。
 
 ## ローカル実行
