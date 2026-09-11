@@ -2,10 +2,11 @@ name: bsky-source-bandit
 
 on:
   schedule:
-    # 08,11,14,17,20,23 JST: measure due posts, then post once.
-    - cron: '0 23,2,5,8,11,14 * * *'
-    # 09:30 JST every Monday: weekly report.
-    - cron: '30 0 * * 1'
+    # 08:17, 11:17, 14:17, 17:17, 20:17, 23:17 JST: measure due posts, then post once.
+    # Off the top of the hour on purpose: :00 schedules queue behind everyone else's and slip badly.
+    - cron: '17 23,2,5,8,11,14 * * *'
+    # 09:37 JST every Monday: weekly report.
+    - cron: '37 0 * * 1'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -52,7 +53,7 @@ jobs:
         run: node src/run-post.mjs ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}
 
       - name: Weekly report
-        if: github.event.schedule == '30 0 * * 1' || (github.event_name == 'workflow_dispatch' && inputs.report)
+        if: github.event.schedule == '37 0 * * 1' || (github.event_name == 'workflow_dispatch' && inputs.report)
         working-directory: bandit
         run: node src/run-report.mjs 7 >> "$GITHUB_STEP_SUMMARY"
 
