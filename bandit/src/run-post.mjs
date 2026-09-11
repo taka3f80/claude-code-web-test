@@ -4,12 +4,14 @@
  *
  * Env: BSKY_HANDLE, BSKY_APP_PASSWORD (omit either -> dry run), GITHUB_TOKEN (optional).
  * Flags: --dry-run, --force (post even if today's quota is already met).
+ * Runs several times a day; each run posts up to `postsPerRun`, capped by `postsPerDay`,
+ * and a source is skipped while inside its `perSourceMinHours` cooldown.
  */
 import { randomUUID } from 'node:crypto';
 import { SOURCES } from './sources/index.mjs';
 import { makeCtx } from './lib/http.mjs';
 import { readJson, writeJson, dateJst } from './lib/store.mjs';
-import { emptyState, rankSources } from './lib/bandit.mjs';
+import { emptyState, rankSources, onCooldown } from './lib/bandit.mjs';
 import { buildPost } from './lib/text.mjs';
 import { login, createPost, postUrl } from './lib/bluesky.mjs';
 
@@ -18,7 +20,7 @@ const handle = process.env.BSKY_HANDLE;
 const password = process.env.BSKY_APP_PASSWORD;
 const dryRun = args.has('--dry-run') || process.env.DRY_RUN === '1' || !handle || !password;
 
-const config = readJson('sources.json', { postsPerDay: 2, explorationDays: 7, sources: [] });
+const config = { postsPerRun: 1, postsPerDay: 6, perSourceMinHours: 6, explorationDays: 3, sources: [], ...readJson('sources.json', {}) };
 const state = readJson('bandit-state.json', emptyState());
 const posts = readJson('posts.json', []);
 const runs = readJson('runs.json', []);
@@ -43,14 +45,14 @@ else console.log('[post] DRY RUN: nothing will be posted or recorded');
 
 const run = { date: today, at: now.toISOString(), dryRun, order: ranking.order, forced: ranking.forced, draws: ranking.draws, results: [] };
 const newPosts = [];
-const remaining = () => config.postsPerDay - postedToday.length - newPosts.length;
+const remaining = () => Math.min(config.postsPerRun, config.postsPerDay - postedToday.length) - newPosts.length;
 
 for (const sourceId of ranking.order) {
   if (remaining() <= 0) break;
   const cfg = config.sources.find((s) => s.id === sourceId);
   const mod = SOURCES[sourceId];
   if (!mod) { run.results.push({ sourceId, outcome: 'unknown-source' }); continue; }
-  if (postedToday.some((p) => p.sourceId === sourceId)) { run.results.push({ sourceId, outcome: 'already-posted-today' }); continue; }
+  if (onCooldown(posts, sourceId, now, config.perSourceMinHours)) { run.results.push({ sourceId, outcome: 'cooldown' }); continue; }
 
   let candidates;
   try {

@@ -1,5 +1,5 @@
 /**
- * Daily: for posts older than 24h that have not been measured, fetch engagement
+ * Each run: for posts older than `measureAfterHours` that have not been measured, fetch engagement
  * from the public API, compute score and reward, update the bandit posteriors.
  * Also snapshots follower count once per day.
  */
@@ -7,12 +7,13 @@ import { readJson, writeJson, dateJst } from './lib/store.mjs';
 import { emptyState, updateState, scoreMetrics, REWARD_THRESHOLD } from './lib/bandit.mjs';
 import { getPosts, getProfile } from './lib/bluesky.mjs';
 
-const MEASURE_AFTER_MS = 24 * 3600 * 1000;
 const now = new Date();
 const today = dateJst(now);
 
 const posts = readJson('posts.json', []);
 const state = readJson('bandit-state.json', emptyState());
+const config = readJson('sources.json', {});
+const MEASURE_AFTER_MS = (config.measureAfterHours ?? 24) * 3600 * 1000;
 
 const due = posts.filter((p) => p.uri && p.reward === null && now.getTime() - Date.parse(p.postedAt) >= MEASURE_AFTER_MS);
 console.log(`[measure] ${due.length} post(s) due`);

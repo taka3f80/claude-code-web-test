@@ -45,3 +45,17 @@ test('rankSources prefers the arm with the stronger posterior most of the time',
   for (let i = 0; i < 200; i++) if (rankSources({ state: st, sources, posts, today: '2026-09-11', rng }).order[0] === 'good') goodFirst++;
   assert.ok(goodFirst > 190, `good first ${goodFirst}/200`);
 });
+
+test('onCooldown ignores dry runs and posts older than the window', async () => {
+  const { onCooldown } = await import('../src/lib/bandit.mjs');
+  const now = new Date('2026-09-11T06:00:00Z');
+  const posts = [
+    { sourceId: 'a', postedAt: '2026-09-11T02:00:00Z' },
+    { sourceId: 'b', postedAt: '2026-09-11T05:00:00Z', dryRun: true },
+    { sourceId: 'c', postedAt: '2026-09-10T20:00:00Z' },
+  ];
+  assert.equal(onCooldown(posts, 'a', now, 6), true);
+  assert.equal(onCooldown(posts, 'b', now, 6), false);
+  assert.equal(onCooldown(posts, 'c', now, 6), false);
+  assert.equal(onCooldown(posts, 'a', now, 3), false);
+});

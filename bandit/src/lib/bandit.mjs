@@ -96,3 +96,9 @@ export function rankSources({ state, sources, posts, today, explorationDays = 7,
     draws: Object.fromEntries(sampled.map((s) => [s.id, Number(s.key.toFixed(4))])),
   };
 }
+
+/** True if the source posted (for real) within the last `hours`. */
+export function onCooldown(posts, sourceId, now, hours) {
+  const since = now.getTime() - hours * 3600 * 1000;
+  return posts.some((p) => !p.dryRun && p.sourceId === sourceId && Date.parse(p.postedAt) >= since);
+}

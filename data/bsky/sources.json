@@ -1,6 +1,9 @@
 {
-  "postsPerDay": 2,
-  "explorationDays": 7,
+  "postsPerRun": 1,
+  "postsPerDay": 6,
+  "perSourceMinHours": 6,
+  "measureAfterHours": 12,
+  "explorationDays": 3,
   "sources": [
     { "id": "arxiv", "enabled": true, "params": { "category": "cs.AI", "max": 10 } },
     { "id": "jma-quake", "enabled": true, "params": { "minIntensity": "3", "withinHours": 24 } },
