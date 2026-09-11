@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "6191502e-e02b-477a-be49-b1a59f0dcb04",
+    "date": "2026-09-11",
+    "postedAt": "2026-09-11T14:32:31.540Z",
+    "sourceId": "arxiv",
+    "itemId": "arxiv-2609.11923",
+    "text": "【arXiv cs.AI 新着】GPU-CFR: 80x Faster Counterfactual Regret Minimization by Compiling the Game to Static Dataflow and CUDA Graph Replay\nhttps://arxiv.org/abs/2609.11923",
+    "url": "https://arxiv.org/abs/2609.11923",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvaruaonpw2g",
+    "cid": "bafyreig3e4bz23dpvefnoxhggafsjxtamn7gxiwxyag3yhsqb3clf5htxu",
+    "postUrl": "https://bsky.app/profile/kazamidori-bot.bsky.social/post/3mvaruaonpw2g",
+    "dryRun": false,
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
+  }
+]
