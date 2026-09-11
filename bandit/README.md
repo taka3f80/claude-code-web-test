@@ -38,7 +38,8 @@ Thompson sampling で次回の配分を更新する。LLM は日次ループに�
 | `github-new-repos` | 直近 7 日に作られて 50★以上の GitHub リポジトリ |
 
 ソースを足すには `src/sources/` にモジュールを 1 つ追加し、`index.mjs` と `sources.json` に登録する。
-モジュールは `id`, `name`, `fetchCandidates(params, ctx)`, `format(item, params)` を export する。
+モジュールは `id`, `name`, `langs`, `fetchCandidates(params, ctx)`, `format(item, params)` を export する。
+投稿の枠（接頭辞）は日本語、中身はソースの言語のまま。英語の中身を含む投稿は `langs: ['ja', 'en']` で両方の読者に届ける。
 `fetchCandidates` は `{ itemId, url, ... }` の配列を新しい順に返す。
 
 ## セットアップ

@@ -80,7 +80,7 @@ for (const sourceId of ranking.order) {
   };
   if (!dryRun) {
     try {
-      const r = await createPost(session, { text, facets, createdAt: new Date().toISOString() });
+      const r = await createPost(session, { text, facets, langs: mod.langs ?? ['ja'], createdAt: new Date().toISOString() });
       record.uri = r.uri; record.cid = r.cid; record.postUrl = postUrl(session.handle, r.uri);
     } catch (e) {
       console.warn(`[post] ${sourceId}: createPost failed: ${e.message}`);

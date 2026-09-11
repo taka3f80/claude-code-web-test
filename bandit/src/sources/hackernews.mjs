@@ -1,5 +1,7 @@
 export const id = 'hackernews';
 export const name = 'Hacker News トップ';
+/** Post language tags: Japanese framing; content language where it differs. */
+export const langs = ['ja', 'en'];
 
 const BASE = 'https://hacker-news.firebaseio.com/v0';
 

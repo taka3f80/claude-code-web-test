@@ -1,5 +1,7 @@
 export const id = 'wikipedia-mostread';
 export const name = 'Wikipedia よく読まれた記事';
+/** Post language tags: Japanese framing; content language where it differs. */
+export const langs = ['ja'];
 
 const SKIP = /^(メインページ|Main Page|特別:|Special:|Wikipedia:|Help:|ファイル:|File:|Portal:|Category:|カテゴリ:)/;
 
