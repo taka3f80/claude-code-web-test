@@ -20,6 +20,8 @@
 - **統廃合（2026-09-12 夜、タカさん了解）**: 風見鶏は Foreword に統合。5 ソースの投稿を停止した（`data/bsky/sources.json` 全て enabled=false。定期実行は動き続けるが投稿しない。measure は既存 2 投稿を測り終える）。Foreword が `/.well-known/atproto-did` で DID `did:plc:cw5teuuqecefnsxu62afidwd` を返すよう配備済み。**タカさんの手**: Bluesky アプリの 設定 → ハンドル → 「自分のドメインを使う」で `foreword.project-haru.org` を入力して確認。切り替え後、GitHub Secrets の `BSKY_HANDLE` を新ハンドルに更新（旧ハンドルではログインできなくなる）。表示名とプロフィール文も Foreword に合わせて変える。MTJL は地図と世界の豆知識の路線で別セッション、この事業からは外す。日本語の動画は Foreword 名の新チャンネル（TikTok と YouTube のアカウント作成はタカさんの手）。英語で海外ベンダーに向ける動画の置き場は未定。repo 名 `claude-code-web-test` の改名は急がない。
 - **候補ツール 30 本、検証済み**: `docs/research/2026-09-12-tool-gap-candidates.md`。空白 5 が確定したのは Skool、Arcade、Feather。Krisp、Photoroom、Opus Clip は検証で除外。
 - **Bluesky 切り替え完了（2026-09-12 21:40 JST 頃、タカさんの手）**: ハンドル `@foreword.project-haru.org`、表示名 Foreword、説明文（自動投稿の明記、運営者、URL）、アイコン（紙の一枚）、バナー設定済み。風見鶏時代の 2 投稿は削除済み（posts.json の記録は残す。measure は「見つからない」として reward 0 で閉じる）。GitHub Secrets の `BSKY_HANDLE` を `foreword.project-haru.org`（@ なし）に更新したかは未確認。未更新なら次の定期実行でログインに失敗するだけで害は無い。
+- **1 本目は Arcade（2026-09-12 夜、タカさんが Atlassian の実物デモを触って「わかりやすい」。正式な確定は次回の冒頭で一言もらう）**。次の作業は「日本から Arcade に無料登録する実験」: タカさんがブラウザで登録を進め、ハルが一画面ずつ記録（英語しか無い画面、カード・住所・メール認証の詰まり、所要時間）。その記録が「始め方」ページの下書きと実験ノートの 1 行目になる。所要 30 分。注意: Arcade の公式トップは「AI で製品動画」を一番上に掲げていて、対話型デモは二番目。日本の読者にどちらを見せるかを決めてから書く。
+- **セッション終了 2026-09-12 22:00 JST 頃。** 次回はこの 0 章を読んでから。
 - **タカさんの判断待ち**:
   1. 最初の 1 ツールをどれにするか（見立ては research 2 章: Arcade、Supademo、Skool、Feather、Rive、Spline、Pitch、Tana）。
   2. Bluesky のハンドル切り替えと Secrets 更新（上記）。
