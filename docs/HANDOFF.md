@@ -21,7 +21,7 @@
 - 実行: GitHub Actions、JST 8:17 / 11:17 / 14:17 / 17:17 / 20:17 / 23:17。月曜 9:37 に週次レポート。データは Actions が `main` にコミット。
 - Secrets: `BSKY_HANDLE`, `BSKY_APP_PASSWORD` は登録済み。Workflow permissions は Read and write。
 - 初投稿: 2026-09-11 23:32 JST（手動起動）。arXiv の論文 1 件。`data/bsky/posts.json` に記録あり。
-- 注意: 最初の定刻（23:00）は GitHub の cron が発火しなかったため、毎時 17 分にずらした。ずらした後の定刻（9/12 8:17 JST 以降）が動いたかは未確認。次のセッションで最初に確認すること。
+- 注意: 最初の定刻（23:00）は GitHub の cron が発火しなかったため、毎時 17 分にずらした。ずらした後、9/12 10:09 JST に定期実行（Run #4, event=schedule）が成功したのを確認済み。8:17 の予定が約 2 時間遅れて動いた形で、GitHub の cron はこの程度遅れることがある。自動運転は成立している。
 - 仕組みの図解: https://claude.ai/code/artifact/6aab9e6d-1ac0-455c-9ae3-0a0d9a0a8bfa （ユーザーのアカウントの Artifact）
 
 ### 2.2 風見鶏の位置づけ
