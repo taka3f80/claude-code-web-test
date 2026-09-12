@@ -15,5 +15,22 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "d1d36f81-9d64-4364-82ee-c9a079e40ac5",
+    "date": "2026-09-12",
+    "postedAt": "2026-09-12T01:09:12.487Z",
+    "sourceId": "wikipedia-mostread",
+    "itemId": "wp-張本勲",
+    "text": "【Wikipedia 昨日よく読まれた記事】張本勲（407,844 views）\nhttps://ja.wikipedia.org/wiki/%E5%BC%B5%E6%9C%AC%E5%8B%B2",
+    "url": "https://ja.wikipedia.org/wiki/%E5%BC%B5%E6%9C%AC%E5%8B%B2",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvbvgq7e3e2t",
+    "cid": "bafyreichqldjprned2nlwvrbtk2itcavv5fkv76yymcahvl5of6amxfvfm",
+    "postUrl": "https://bsky.app/profile/kazamidori-bot.bsky.social/post/3mvbvgq7e3e2t",
+    "dryRun": false,
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]

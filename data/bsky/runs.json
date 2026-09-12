@@ -25,5 +25,38 @@
         "itemId": "arxiv-2609.11923"
       }
     ]
+  },
+  {
+    "date": "2026-09-12",
+    "at": "2026-09-12T01:09:12.487Z",
+    "dryRun": false,
+    "order": [
+      "jma-quake",
+      "wikipedia-mostread",
+      "hackernews",
+      "github-new-repos",
+      "arxiv"
+    ],
+    "forced": [
+      "jma-quake",
+      "wikipedia-mostread",
+      "hackernews",
+      "github-new-repos"
+    ],
+    "draws": {
+      "arxiv": 0.2684
+    },
+    "results": [
+      {
+        "sourceId": "jma-quake",
+        "outcome": "no-fresh-item",
+        "candidates": 0
+      },
+      {
+        "sourceId": "wikipedia-mostread",
+        "outcome": "posted",
+        "itemId": "wp-張本勲"
+      }
+    ]
   }
 ]
