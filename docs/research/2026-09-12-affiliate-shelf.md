@@ -203,3 +203,27 @@ IDrive（保存、第三者は 25% 継続で一致）、Enpass（パスワード
 3. 管理画面を定期的に記録しておく
 4. 直営プログラムを混ぜて、PartnerStack 一本に寄せない。上の 4.4 のとおり、普通の人向けの棚は直営が主なので自然に分散する
 5. 支払いが止まったら、PartnerStack のサポートと同時に、その会社（資金を持っている側）にも連絡する
+
+## 6. 網（ネットワーク）の比較（2026-09-12 夜）: 一つ登録して多くの継続報酬に届くか
+
+前提: どの網も「網への登録」と「各社プログラムへの参加承認」は別。承認なしで即使えるのは ClickBank と Digistore24（情報商材中心、うちの棚には合わない）だけ。網の価値は、一つの画面・一つの支払い・一つの税務書類に集約できること。
+
+| 網 | 種類 | 各社承認 | 継続報酬の例（確認済み） | 日本の個人 | 支払い | 評判 | 出典 |
+|---|---|---|---|---|---|---|---|
+| Impact.com | 大手網、2,000 社超（NordVPN、HubSpot、Canva、Shopify、Semrush） | 各社ごと | NordVPN（更新 30%、Impact 経由でも参加可）、HubSpot（12 か月 30%） | 可、W-8BEN | PayPal 2%（上限 $20）/ 銀行、$10 から。**維持費は税務・支払い情報が未設定で 6 か月払えない場合のみ $10/月**（公式ヘルプで確認） | Trustpilot は件数少なく低め | help.impact.com、junction.cj.com |
+| PartnerStack | B2B SaaS 市場 | 各社ごと | Kit、Webflow、Thinkific、ElevenLabs、GetResponse、Pipedrive ほか（2 章） | 可、PayPal/Stripe なら W-8 不要 | 最低 $5 | 1.8〜2.0（5 章） | support.partnerstack.com |
+| Awin（ShareASale を 2025 年に吸収） | 大手網、数万社 | 各社ごと | NordVPN（US & CA 向け）。他の継続型は名前で確認できず | 明記なし。旧 $5 デポジットの有無は未確認 | 各社ごと、最低 $20 相当 | 3.8 | awin.com |
+| CJ | 大手網 | 各社ごと、サイト審査あり | NordVPN（新規 40%） | 可、W-8BEN、Payoneer | $50 から。6 か月無活動で閉鎖 | 低い | junction.cj.com |
+| Rakuten Advertising | 大手網 | 各社ごと | 名前で確認できず | 可 | 12 か月無活動で維持費 | 2.2 | pubhelp.rakutenadvertising.com |
+| FlexOffers | 集約網 | 一部自動承認 | 名前で確認できず | 可 | 標準 | 2.5 | flexoffers.com |
+| Reditus | B2B SaaS の一覧兼市場、155 件 | 各社ごと | Reditus 上: Joiin 12 か月 40〜50%、Leadpages 12 か月 20%、Search Atlas 無期限 30%、Omnimind 無期限 30%。他は他社基盤への案内（systeme.io、MailerLite、beehiiv、Snov.io 無期限 40%） | 制限の記載なし | Reditus 上のものは一つのリンクと自動支払い | 未確認 | getreditus.com/affiliate-programs |
+| ClickBank / Digistore24 | 情報商材の市場 | ほぼ即時 | rebill 型が多い。Digistore24 は無期限 70% の商品も | 可 | PayPal/送金、$50 から | ClickBank 4.5 | 棚に合わない |
+| Tolt / FirstPromoter / Rewardful / Affiliatly / Post Affiliate Pro | 各社が自前で回す道具。市場ではない | — | — | — | — | — | 対象外 |
+
+### 6.1 見立て
+
+- 「一つ登録して全部」は存在しない。現実解は **Impact と PartnerStack の二つ**。Impact が消費者向け（NordVPN ほか）、PartnerStack が SaaS（ElevenLabs、Kit、Webflow、Thinkific）。この二つで 1 章と 4 章の候補の大半に届く。
+- 直営は、網に無いもの（Proton、pCloud、Icedrive、Kapwing、systeme.io、beehiiv）だけ、棚に載せると決めたときに個別に。
+- 網の中の継続型プログラムの全容は、外からは見えない。登録して管理画面で「recurring」で検索するのが一番確実で、これはタカさんの手になる。
+- 未確認: Awin の日本の個人の可否とデポジット、NordPass が Impact 上にあるか、Impact 経由の NordVPN に更新報酬が付くか（直営の条件と同じかは登録後に確認）。
+
