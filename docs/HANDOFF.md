@@ -16,7 +16,7 @@
   - 名前の根は「ととのう」。海外にありそうな名前の日本語版として見せる。候補 Sopiva（sopiva.io 空き、RDAP 確認のみ）。捨てた候補は `docs/decided-not-to-do.md`。
 - **名前と場所が決定（2026-09-12 夕方）**: 名前 Sopiva、場所 sopiva.project-haru.org（ゼロ円、当たったら独自ドメインへ 301）。独自ドメインの価格調査は `docs/decided-not-to-do.md` の最終行。
 - **タカさんの判断待ち**:
-  1. 棚の 1 本目（日本語 UI のある ElevenLabs / NordVPN / Synthesia から）。
+  1. 棚の 1 本目。日本語 UI は条件にしない（2026-09-12 夜、タカさん）。普通の人が使う継続報酬型の追加調査と PartnerStack の評判調査が進行中。
   2. PartnerStack への登録（タカさん本人が行う）。
   3. Cloudflare に触る許可（project-haru.org のゾーンに DNS レコードを足す、D1 を作る、Worker を出す）。
 - **湊の骨組み、ローカルで動作確認済み（2026-09-12 夕方）**: `../sopiva/`（ローカル git、リモート未作成）。Astro 静的サイト + Worker。`/go/<slug>?s=<channel>.<post_id>` が D1 の clicks に記録して 302。vitest 8 件、build、`d1 migrations apply --local`、`wrangler dev` で 302 / 404 / 不正 sub の扱いを確認。見た目は未着手（仮ページ、noindex）。
