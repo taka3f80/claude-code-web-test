@@ -1,1 +1,12 @@
-{ "version": 1, "sources": {} }
+{
+  "version": 1,
+  "sources": {
+    "arxiv": {
+      "alpha": 2,
+      "beta": 1,
+      "posts": 1,
+      "successes": 1,
+      "totalScore": 1
+    }
+  }
+}

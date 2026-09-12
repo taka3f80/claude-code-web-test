@@ -11,10 +11,15 @@
     "cid": "bafyreig3e4bz23dpvefnoxhggafsjxtamn7gxiwxyag3yhsqb3clf5htxu",
     "postUrl": "https://bsky.app/profile/kazamidori-bot.bsky.social/post/3mvaruaonpw2g",
     "dryRun": false,
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 1,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 1,
+    "reward": 1,
+    "measuredAt": "2026-09-12T12:11:47.554Z"
   },
   {
     "id": "d1d36f81-9d64-4364-82ee-c9a079e40ac5",
