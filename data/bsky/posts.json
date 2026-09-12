@@ -33,9 +33,11 @@
     "cid": "bafyreichqldjprned2nlwvrbtk2itcavv5fkv76yymcahvl5of6amxfvfm",
     "postUrl": "https://bsky.app/profile/kazamidori-bot.bsky.social/post/3mvbvgq7e3e2t",
     "dryRun": false,
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "missing": true
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-12T17:13:20.400Z"
   }
 ]
