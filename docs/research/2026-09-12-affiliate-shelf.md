@@ -140,3 +140,66 @@
 - 消費者向けで日本語 UI があり更新にも出るのは NordVPN のみ。競合は多いが「誰にでも勧められる」棚として保険になる。
 - ネットワークの登録はまず PartnerStack 一つに絞ると、Kit、Webflow、Thinkific、ElevenLabs、Softr、n8n、GetResponse、Pipedrive、HubSpot（Impact）以外がまとめて扱える。
 - 登録はタカさんが行う。ハル はアカウント作成を代行しない。
+
+## 4. 追加調査（2026-09-12 夜）: 普通の人が使うサブスクで継続報酬があるもの
+
+条件: IT と関係ない人が日常で使うもの。日本語 UI は条件にしない（無いのに良いものは手引きが価値になる）。
+
+### 4.1 公式ページで継続報酬を確認できたもの
+
+| サービス | 分野 | 報酬（公式の文言） | 継続 | 経路 | 日本語 UI | 出典 |
+|---|---|---|---|---|---|---|
+| NordVPN | VPN | 新規 40〜100% / 更新 30% | 更新に 30% | Nord 直営 | 有 | nordvpn.com/affiliate/ |
+| NordPass | パスワード管理 | 新規 30%、B2C の全更新に 10% | 更新に 10%、期限なし | Nord 直営（同じ口座） | 有の見込み | nordpass.com/affiliate/ |
+| Proton | メール・VPN・保存 | 新規 30%（VPN 40%）、Renewals 30% | 更新に 30% | 直営、$100 超から銀行振込 | 無 | proton.me/partners/affiliates |
+| pCloud | 保存 | 20% of each monthly or annual payment | 全支払い | 直営、PayPal $10 から | 未確認 | pcloud.com/affiliate |
+| Kapwing | ブラウザ動画編集 | commissions for as long as they are a user（率は公式に無し、第三者 25〜35%） | ユーザーである限り | 直営 | 無 | kapwing.com/affiliates |
+| Icedrive | 保存 | 20% on all sales including all recurring（自社の SNS 投稿。公式ページは取得できず） | 全更新 | 直営 | 無 | icedrive.net/partner-program |
+| Everand（Scribd） | 電子書籍・オーディオブック | 15% recurring for up to 12 months。ただし成果対象は米英居住者の購入のみ | 12 か月 | PartnerStack | 無 | support.scribd.com |
+
+### 4.2 有力だが公式で未確認（ページが 403 か、更新の記述なし）
+
+IDrive（保存、第三者は 25% 継続で一致）、Enpass（パスワード、every purchase に 30%）、MEGA（保存、12 か月内の再購入に 20%）、Malwarebytes（最大 30%、更新は不明）、Bitdefender（新規 20%、更新は不明）、QuillBot（10〜20%、継続は不明）、Keeper（最低 10%）、RoboForm（30%、規約はログイン後）、Qustodio（最大 20%、Awin）。
+
+### 4.3 一時金のみ、または無し
+
+一時金: Setapp（$25）、Adobe（1 請求期間分）、Babbel、italki、Preply、Brilliant、Fitbit Premium、MyFitnessPal、YNAB、Monarch、Noom、Suno、Kobo Plus。
+無し: DeepL、Mullvad、Kagi、Tuta（クレジット付与のみ。第三者の「25% 継続」は誤り）。
+
+### 4.4 見立て
+
+- 普通の人向けで継続報酬が確認できるのは「守りと片付け」に集中している。VPN、パスワード管理、保存、暗号化メール。これは「デジタルの身の回りをととのえる」と読み替えられ、Sopiva の看板と噛み合う。
+- 上位はほぼ直営プログラム（Nord、Proton、pCloud、Icedrive、Kapwing）。PartnerStack に依存しなくても 1 本目を始められる。
+- 日本で既に多く紹介されているのは NordVPN だけ。NordPass、Proton、pCloud、Icedrive、Kapwing は日本語の手引きがほぼ無い。値差はこちらにある。
+
+## 5. PartnerStack の評判（2026-09-12）
+
+### 5.1 数字
+
+| 場所 | 評価 | 件数 | 主な書き手 |
+|---|---|---|---|
+| Trustpilot | 1.8〜2.0 / 5 | 61 件。1 つ星 64%、5 つ星 32% の二極 | アフィリエイト（受け取る側） |
+| G2 | 4.6〜4.7 / 5 | 約 900〜1,000 件 | プログラムを運営する会社（払う側） |
+| Capterra | 4.8 / 5 | 89 件 | 同上 |
+| Google | 独立した口コミページは見つからず。検索結果に Trustpilot 等の断片が出ている可能性が高い | | |
+
+### 5.2 苦情の中身（受け取る側）
+
+未払い・消えた報酬、説明なしの凍結、サポート無応答、計測のバグ。2026 年 5〜7 月の 1 つ星に会社の返信なし。第三者の比較テストで「PartnerStack だけ成果を計測しなかった」という指摘が 1 件（単独の検証で、追認はできていない）。
+
+### 5.3 公式の仕組み
+
+- 最低支払額 $5。毎月 8〜13 日に引き出し。PayPal（5 日保留）、Stripe（$2.25 + 0.25%、上限 $20）、Airwallex 口座振込。
+- 参加承認は各プログラムの会社が個別に行う。却下理由は表示される。
+- 返金・解約があると会社側がクローバック（未払い残高から差し引き、残高がマイナスになることもある）。**支払い済みの金額は戻されない。**
+- 除名も各社ごと。1 社から外されても口座は残る。
+
+### 5.4 判定
+
+詐欺ではない。ただし受け取る側の金銭トラブルは実際に起き、サポートは当てにならない。小さく使うなら足りる。対策:
+
+1. 各プログラムの規約を文字どおり守る（自己紹介、報酬付き誘導、cookie の細工をしない）
+2. $5 を超えたら毎月引き出す。残高を溜めない
+3. 管理画面を定期的に記録しておく
+4. 直営プログラムを混ぜて、PartnerStack 一本に寄せない。上の 4.4 のとおり、普通の人向けの棚は直営が主なので自然に分散する
+5. 支払いが止まったら、PartnerStack のサポートと同時に、その会社（資金を持っている側）にも連絡する
