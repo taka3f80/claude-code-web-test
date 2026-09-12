@@ -20,7 +20,8 @@
   2. PartnerStack への登録（タカさん本人が行う）。
   3. Cloudflare に触る許可（project-haru.org のゾーンに DNS レコードを足す、D1 を作る、Worker を出す）。
 - **湊の骨組み、ローカルで動作確認済み（2026-09-12 夕方）**: `../sopiva/`（ローカル git、リモート未作成）。Astro 静的サイト + Worker。`/go/<slug>?s=<channel>.<post_id>` が D1 の clicks に記録して 302。vitest 8 件、build、`d1 migrations apply --local`、`wrangler dev` で 302 / 404 / 不正 sub の扱いを確認。見た目は未着手（仮ページ、noindex）。
-- **次の一歩**: タカさんの OK 後に Cloudflare へ: `wrangler d1 create sopiva` → wrangler.jsonc の database_id を差し替え → `db:migrate:remote` → `wrangler deploy`（custom domain sopiva.project-haru.org が自動で DNS に載る）。その後、棚 1 本目の紹介リンクを shelf.json に入れ、棚ページ 1 枚を設計（核を先に目視）。
+- **湊は本番稼働（2026-09-12 18:10 JST、タカさん OK 後）**: https://sopiva.project-haru.org/ が 200。`/go/example?s=test.deploy` が 302 で本番 D1（sopiva、APAC、id は `../sopiva/wrangler.jsonc`）に 1 行記録。project-haru.org 本体は無影響（200）。仮ページは noindex のまま。sopiva の GitHub リモートは未作成（ローカル git のみ）。
+- **次の一歩**: 棚 1 本目の決定と PartnerStack 登録（タカさん）→ 紹介リンクを `shelf.json` に入れる → 棚ページ 1 枚の設計（核を先に目視）→ 記事 3 本。sopiva を GitHub に上げて Workers Builds で push=deploy にするかは、タカさんの判断待ち。
 
 以下は Web 版セッション（2026-09-12 午前）時点の記録。方針は上の 0 と BUSINESS.md が優先。
 
