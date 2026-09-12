@@ -14,11 +14,12 @@
   - 4 チャネルの役割: 風見鶏＝風を読む、湊＝積む・契約、YouTube＝第二の検索（別チャンネル）、TikTok＝呼び込みの実験枠。
   - 作る順番: 湊の骨組み → 記事 3 本 → 風見鶏を湊につなぐ → 動画 1 本 → 週次レポートを漏斗の形に。
   - 名前の根は「ととのう」。海外にありそうな名前の日本語版として見せる。候補 Sopiva（sopiva.io 空き、RDAP 確認のみ）。捨てた候補は `docs/decided-not-to-do.md`。
+- **名前と場所が決定（2026-09-12 夕方）**: 名前 Sopiva、場所 sopiva.project-haru.org（ゼロ円、当たったら独自ドメインへ 301）。独自ドメインの価格調査は `docs/decided-not-to-do.md` の最終行。
 - **タカさんの判断待ち**:
-  1. 名前の確定（Sopiva か別か）と、ドメインの登録（タカさんの手）。
-  2. 棚の 1 本目（日本語 UI のある ElevenLabs / NordVPN / Synthesia から）。
-  3. PartnerStack への登録（タカさん本人が行う）。
-- **次の一歩**: 名前が決まり次第、湊の骨組み（新 repo、/go/ Worker と D1 の帳簿、棚ページ 1 枚に PR 表記と運営者表記）。
+  1. 棚の 1 本目（日本語 UI のある ElevenLabs / NordVPN / Synthesia から）。
+  2. PartnerStack への登録（タカさん本人が行う）。
+  3. Cloudflare に触る許可（project-haru.org のゾーンに DNS レコードを足す、D1 を作る、Worker を出す）。
+- **次の一歩**: 湊の骨組み。新 repo `sopiva`（02.Code 配下）、/go/ Worker と D1 の帳簿、棚ページ 1 枚に PR 表記と運営者表記。核だけ出して目視 OK を取ってから肉付け。
 
 以下は Web 版セッション（2026-09-12 午前）時点の記録。方針は上の 0 と BUSINESS.md が優先。
 
