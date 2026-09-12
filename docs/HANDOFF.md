@@ -17,10 +17,13 @@
 - **名前と場所が決定（2026-09-12 夕方）**: 名前 Sopiva、場所 sopiva.project-haru.org（ゼロ円、当たったら独自ドメインへ 301）。独自ドメインの価格調査は `docs/decided-not-to-do.md` の最終行。
 - **式が確定（2026-09-12 夜）→ BUSINESS.md v0.5 に反映済み**: 本命は海外ソフトウェアベンダー。「なぜ日本人は優れた IT サービスを買わないのか」を装置で再現性のある形にして高く売る。アフィリエイトは任意、利益不要、採算度外視で丁寧に。Sopiva は日本支社の顔をした公開実験場。風見鶏は表現の実験装置（どの言い方なら見知らぬツールのページを開くか）。動画はずんだもんで「伸びそうなカット」。対象ツール 20〜30 本を調査中（3 系統の Sonnet、結果は `docs/research/2026-09-12-tool-gap-candidates.md` に）。
 - （経緯）夜の議論で式が変わりつつあった（2026-09-12 夜）: アフィリエイトは「他人の台」で、胴元に勝てない。持っている装置を、自分が支払いを握る形に組み替える。候補 1「業界版の装置を中小企業に月額で売る」、候補 2「日本語圏の反応と需要の信号を、海外ソフト企業の GTM 担当に有料レターで売る」。候補 2 の空白は調査で確認済み（research 7 章）。BUSINESS.md はまだ朝の式のまま。次のセッションはここから。
+- **統廃合（2026-09-12 夜、タカさん了解）**: 風見鶏は Sopiva に統合。5 ソースの投稿を停止した（`data/bsky/sources.json` 全て enabled=false。定期実行は動き続けるが投稿しない。measure は既存 2 投稿を測り終える）。Sopiva が `/.well-known/atproto-did` で DID `did:plc:cw5teuuqecefnsxu62afidwd` を返すよう配備済み。**タカさんの手**: Bluesky アプリの 設定 → ハンドル → 「自分のドメインを使う」で `sopiva.project-haru.org` を入力して確認。切り替え後、GitHub Secrets の `BSKY_HANDLE` を新ハンドルに更新（旧ハンドルではログインできなくなる）。表示名とプロフィール文も Sopiva に合わせて変える。MTJL は地図と世界の豆知識の路線で別セッション、この事業からは外す。日本語の動画は Sopiva 名の新チャンネル（TikTok と YouTube のアカウント作成はタカさんの手）。英語で海外ベンダーに向ける動画の置き場は未定。repo 名 `claude-code-web-test` の改名は急がない。
+- **候補ツール 30 本、検証済み**: `docs/research/2026-09-12-tool-gap-candidates.md`。空白 5 が確定したのは Skool、Arcade、Feather。Krisp、Photoroom、Opus Clip は検証で除外。
 - **タカさんの判断待ち**:
-  1. 棚の 1 本目。日本語 UI は条件にしない（2026-09-12 夜、タカさん）。普通の人が使う継続報酬型の追加調査と PartnerStack の評判調査が進行中。
-  2. PartnerStack への登録（タカさん本人が行う）。
-  3. Cloudflare に触る許可（project-haru.org のゾーンに DNS レコードを足す、D1 を作る、Worker を出す）。
+  1. 最初の 1 ツールをどれにするか（見立ては research 2 章: Arcade、Supademo、Skool、Feather、Rive、Spline、Pitch、Tana）。
+  2. Bluesky のハンドル切り替えと Secrets 更新（上記）。
+  3. Sopiva 名の TikTok / YouTube アカウント作成。
+  4. 「なぜ買わないか」の主張 5 本を、ハルが下書きしてよいか、タカさんの口から先に出すか。
 - **湊の骨組み、ローカルで動作確認済み（2026-09-12 夕方）**: `../sopiva/`（ローカル git、リモート未作成）。Astro 静的サイト + Worker。`/go/<slug>?s=<channel>.<post_id>` が D1 の clicks に記録して 302。vitest 8 件、build、`d1 migrations apply --local`、`wrangler dev` で 302 / 404 / 不正 sub の扱いを確認。見た目は未着手（仮ページ、noindex）。
 - **湊は本番稼働（2026-09-12 18:10 JST、タカさん OK 後）**: https://sopiva.project-haru.org/ が 200。`/go/example?s=test.deploy` が 302 で本番 D1（sopiva、APAC、id は `../sopiva/wrangler.jsonc`）に 1 行記録。project-haru.org 本体は無影響（200）。仮ページは noindex のまま。sopiva の GitHub リモートは未作成（ローカル git のみ）。
 - **次の一歩**: 棚 1 本目の決定と PartnerStack 登録（タカさん）→ 紹介リンクを `shelf.json` に入れる → 棚ページ 1 枚の設計（核を先に目視）→ 記事 3 本。sopiva を GitHub に上げて Workers Builds で push=deploy にするかは、タカさんの判断待ち。

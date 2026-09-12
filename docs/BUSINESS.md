@@ -32,7 +32,7 @@
 - 紹介リンクや /go/ の帳簿は、収入源ではなく「日本人が本当に申し込んだか」を測る計器。ゼロでも、ゼロの理由が記録されていれば商品になる。
 - Sopiva（sopiva.project-haru.org）は公開実験場。**まるで日本支社のような顔**で、丁寧な解説・使い方・比較を置く。SEO は徹底する。
 - 風見鶏（Bluesky bot）は**表現の実験装置**。市場を調べるのではなく、日本人がどういう言い方なら見知らぬツールのページを開くか、動画を見るかを測る。腕は「ソース」から「表現」へ。
-- 動画（TikTok、YouTube）は、そのツールの「伸びそうなカット」。話者はあえてずんだもん。日本人は ElevenLabs の声を聞き慣れておらず、アメリカ人には感覚的に手を出しにくいアニメの手法。ここも表現の実験。
+- 動画（TikTok、YouTube）は、そのツールの「伸びそうなカット」。話者はあえてずんだもん。日本人は ElevenLabs の声を聞き慣れておらず、アメリカ人には感覚的に手を出しにくいアニメの手法。ここも表現の実験。**日本語の動画は Sopiva 名の新チャンネル。** MOSTLY TRUE JAPAN LAB は地図と世界の豆知識の路線（別セッション）で、この事業の一部ではない。英語で海外ベンダーに向ける動画の置き場は未定。
 
 ### 2.3 対象ツールの選び方
 
@@ -51,7 +51,7 @@
 ### 2.5 場所
 
 - Sopiva: sopiva.project-haru.org、Astro + Cloudflare Workers、`../sopiva/`。当たったら独自ドメインへ 301。
-- 風見鶏: この repo。裏方の計器。
+- 風見鶏: この repo。裏方の計器。**2026-09-12 夜、統合を決定**: Bluesky のハンドルを `sopiva.project-haru.org` に変える（サイトが `/.well-known/atproto-did` を返すよう配備済み）。5 ソースの投稿は停止（sources.json で全て enabled=false）。エンジンは残し、腕を「ツール × 表現の型」に作り替える。HN と GitHub は投稿源ではなく候補ツールの発見器として裏で回す。
 - project-haru.org 本体には置かない。実験が動いたら Story を 1 本書いて渡すだけ。
 - 動画の制作は `../video-lab/` の型（Remotion、VOICEVOX）を使う。
 
@@ -150,7 +150,7 @@
 - 現状と次の一手: `docs/HANDOFF.md`
 - 捨てた案と経緯: `docs/decided-not-to-do.md`
 - 継続報酬・網・空白の調査: `docs/research/2026-09-12-affiliate-shelf.md`
-- 対象ツールの候補: `docs/research/2026-09-12-tool-gap-candidates.md`（作成中）
+- 対象ツールの候補: `docs/research/2026-09-12-tool-gap-candidates.md`
 - 風見鶏の仕組み: `bandit/README.md`
 - video-lab の物理と型: `../video-lab/docs/publish.md`、`../video-lab/docs/toolbox.md`
 - タカさんの前提: `../project-haru/docs/codex-01.md`、`codex-02.md`

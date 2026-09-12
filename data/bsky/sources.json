@@ -5,10 +5,10 @@
   "measureAfterHours": 12,
   "explorationDays": 3,
   "sources": [
-    { "id": "arxiv", "enabled": true, "params": { "category": "cs.AI", "max": 10 } },
-    { "id": "jma-quake", "enabled": true, "params": { "minIntensity": "3", "withinHours": 24 } },
-    { "id": "wikipedia-mostread", "enabled": true, "params": { "lang": "ja" } },
-    { "id": "hackernews", "enabled": true, "params": { "minScore": 100, "lookAt": 10 } },
-    { "id": "github-new-repos", "enabled": true, "params": { "days": 7, "minStars": 50 } }
+    { "id": "arxiv", "enabled": false, "params": { "category": "cs.AI", "max": 10 } },
+    { "id": "jma-quake", "enabled": false, "params": { "minIntensity": "3", "withinHours": 24 } },
+    { "id": "wikipedia-mostread", "enabled": false, "params": { "lang": "ja" } },
+    { "id": "hackernews", "enabled": false, "params": { "minScore": 100, "lookAt": 10 } },
+    { "id": "github-new-repos", "enabled": false, "params": { "days": 7, "minStars": 50 } }
   ]
 }
