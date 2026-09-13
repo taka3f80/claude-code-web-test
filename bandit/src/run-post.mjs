@@ -26,7 +26,7 @@ const missing = [!handle && 'BSKY_HANDLE', !password && 'BSKY_APP_PASSWORD'].fil
 const dryRun = args.has('--dry-run') || process.env.DRY_RUN === '1' || missing.length > 0;
 
 const config = { postsPerRun: 1, postsPerDay: 6, perSourceMinHours: 6, explorationDays: 3, sources: [], digest: { enabled: false }, ...readJson('sources.json', {}) };
-const digestCfg = { enabled: false, model: DEFAULT_MODEL, ...config.digest };
+const digestCfg = { enabled: false, model: DEFAULT_MODEL, maxTriesPerSource: 3, ...config.digest };
 const openaiKey = process.env.OPENAI_API_KEY;
 const state = readJson('bandit-state.json', emptyState());
 const posts = readJson('posts.json', []);
@@ -75,35 +75,50 @@ for (const sourceId of ranking.order) {
     run.results.push({ sourceId, outcome: 'fetch-error', error: e.message.slice(0, 200) });
     continue;
   }
-  const item = candidates.find((c) => !seen.has(c.itemId));
-  if (!item) {
+  const fresh = candidates.filter((c) => !seen.has(c.itemId));
+  if (!fresh.length) {
     console.log(`[post] ${sourceId}: no fresh item (${candidates.length} candidate(s), all posted before or none available)`);
     run.results.push({ sourceId, outcome: 'no-fresh-item', candidates: candidates.length });
     continue;
   }
 
+  // Walk the fresh candidates (at most `digest.maxTriesPerSource` digest calls) until one passes gate 1.
+  const useDigest = digestCfg.enabled && typeof mod.digestInput === 'function';
+  let item = null;
   let digest = null;
-  if (digestCfg.enabled && typeof mod.digestInput === 'function') {
+  let errored = false;
+  for (const cand of fresh.slice(0, useDigest ? digestCfg.maxTriesPerSource : 1)) {
+    if (!useDigest) { item = cand; break; }
     if (!openaiKey && dryRun) {
       console.warn(`[post] ${sourceId}: DRY RUN without OPENAI_API_KEY -> showing the English template; a real run would skip this item`);
-    } else {
-      try {
-        digest = await digestJa(mod.digestInput(item), { apiKey: openaiKey, model: digestCfg.model });
-        console.log(`[post] ${sourceId}: digest ok (${digestCfg.model}) kind=${digest.kind}`);
-      } catch (e) {
-        console.warn(`[post] ${sourceId}: digest failed, skipping item: ${e.message}`);
-        run.results.push({ sourceId, outcome: 'digest-error', itemId: item.itemId, error: e.message.slice(0, 200) });
-        continue;
-      }
-      if (digest.kind !== POSTABLE_KIND) {
-        // Gate 1: only services/apps a reader can sign up for today. What was dropped is logged so the gate can be audited.
-        console.log(`[post] ${sourceId}: kind-skip (${digest.kind}) ${item.itemId} ${digest.name}: ${digest.oneLiner}`);
-        run.results.push({ sourceId, outcome: 'kind-skip', itemId: item.itemId, kind: digest.kind, name: digest.name, oneLiner: digest.oneLiner });
-        seen.add(item.itemId);
-        skipped.push({ itemId: item.itemId, sourceId, kind: digest.kind, at: now.toISOString() });
-        continue;
-      }
+      item = cand; break;
     }
+    let d;
+    try {
+      d = await digestJa(mod.digestInput(cand), { apiKey: openaiKey, model: digestCfg.model });
+      console.log(`[post] ${sourceId}: digest ok (${digestCfg.model}) kind=${d.kind} ${cand.itemId}`);
+    } catch (e) {
+      // API trouble: stop trying this source for this run; never fall back to the English text.
+      console.warn(`[post] ${sourceId}: digest failed, skipping item: ${e.message}`);
+      run.results.push({ sourceId, outcome: 'digest-error', itemId: cand.itemId, error: e.message.slice(0, 200) });
+      errored = true; break;
+    }
+    if (d.kind !== POSTABLE_KIND) {
+      // Gate 1: only services/apps a reader can sign up for today. What was dropped is logged so the gate can be audited.
+      console.log(`[post] ${sourceId}: kind-skip (${d.kind}) ${cand.itemId} ${d.name}: ${d.oneLiner}`);
+      run.results.push({ sourceId, outcome: 'kind-skip', itemId: cand.itemId, kind: d.kind, name: d.name, oneLiner: d.oneLiner });
+      seen.add(cand.itemId);
+      skipped.push({ itemId: cand.itemId, sourceId, kind: d.kind, at: now.toISOString() });
+      continue;
+    }
+    item = cand; digest = d; break;
+  }
+  if (!item) {
+    if (!errored) {
+      console.log(`[post] ${sourceId}: all ${Math.min(fresh.length, digestCfg.maxTriesPerSource)} tried candidate(s) were kind-skipped`);
+      run.results.push({ sourceId, outcome: 'all-skipped', tried: Math.min(fresh.length, digestCfg.maxTriesPerSource) });
+    }
+    continue;
   }
 
   const { body, url } = mod.format(item, cfg.params ?? {}, digest);

@@ -4,7 +4,7 @@
   "perSourceMinHours": 6,
   "measureAfterHours": 12,
   "explorationDays": 3,
-  "digest": { "enabled": true, "model": "gpt-5.4-mini" },
+  "digest": { "enabled": true, "model": "gpt-5.4-mini", "maxTriesPerSource": 3 },
   "sources": [
     { "id": "arxiv", "enabled": false, "params": { "category": "cs.AI", "max": 10 } },
     { "id": "jma-quake", "enabled": false, "params": { "minIntensity": "3", "withinHours": 24 } },
