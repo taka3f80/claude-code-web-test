@@ -4,5 +4,23 @@
     "sourceId": "hackernews",
     "kind": "読み物・作品",
     "at": "2026-09-13T13:19:44.794Z"
+  },
+  {
+    "itemId": "gh-sdli1995/dlssg_for_sm86",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-13T14:17:17.509Z"
+  },
+  {
+    "itemId": "gh-openai/NavierStokesAndEuler",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-13T14:17:17.509Z"
+  },
+  {
+    "itemId": "gh-Edge0-AI/Edge0",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-13T14:17:17.509Z"
   }
 ]
