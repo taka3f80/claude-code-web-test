@@ -56,7 +56,7 @@ LLM の出番は 1 か所だけ: 投稿直前に英語の題名と説明文か�
 2. リポジトリの Secrets に `BSKY_HANDLE`（`foreword.project-haru.org`）と `BSKY_APP_PASSWORD` を登録する。
    日本語ダイジェストを使うなら `OPENAI_API_KEY` も登録する（無いと `digest.enabled` の間は投稿されない）。
 3. Actions の `bsky-source-bandit` を `dry_run = true` で手動実行し、投稿文が出ることを確認する。
-4. 以後は JST 8:17, 11:17, 14:17, 17:17, 20:17, 23:17 に自動で回り（1 回 1 投稿）、データファイルはワークフローが同じブランチにコミットする。
+4. 以後は JST 8:17, 11:17, 14:17, 17:17, 20:17, 23:17 に自動で回り（1 回 1 投稿）、データファイルはワークフローが同じブランチにコミットする。この 6 枠を実際に起動するのは Foreword の Cloudflare Worker（`../foreword/worker/trigger.ts`、cron から workflow_dispatch）。GitHub 自身の schedule は数時間遅れたり枠ごと落ちたりするので（2026-09-13 実測）、フォールバック扱い。
    間隔を変えるにはワークフローの cron と `sources.json` の `postsPerDay` を合わせて変える。
 
 ## ローカル実行

@@ -1,11 +1,14 @@
 name: bsky-source-bandit
 
 on:
+  # The six daily posting slots (08:17 ... 23:17 JST) are fired by the Foreword Cloudflare Worker's cron
+  # (../foreword/worker/trigger.ts) via workflow_dispatch with dry_run=false. GitHub's own schedule fired
+  # 3 of 6 slots on 2026-09-13, each 1.5 to 3 hours late, so it is kept only as a fallback: a double fire
+  # is harmless (concurrency group + postsPerDay cap). Remove the posting cron once the Worker has fired for a few days.
   schedule:
-    # 08:17, 11:17, 14:17, 17:17, 20:17, 23:17 JST: measure due posts, then post once.
-    # Off the top of the hour on purpose: :00 schedules queue behind everyone else's and slip badly.
+    # Fallback for the same six slots (see above).
     - cron: '17 23,2,5,8,11,14 * * *'
-    # 09:37 JST every Monday: weekly report.
+    # 09:37 JST every Monday: weekly report (lateness is harmless here). This run also measures and posts once.
     - cron: '37 0 * * 1'
   workflow_dispatch:
     inputs:
