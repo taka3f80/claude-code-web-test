@@ -63,5 +63,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "9a7f595b-0643-46c2-95f3-045ae21fbb4b",
+    "date": "2026-09-14",
+    "postedAt": "2026-09-13T23:17:17.971Z",
+    "sourceId": "github-new-repos",
+    "itemId": "gh-gazijarin/itsgiving",
+    "text": "【海外で話題のツール】itsgiving：会議でミームを使って自己表現するためのもの\n会議中のやりとりを少し遊びたい人は、一度見てみてください\n公開 1 週間で GitHub ★814 / Python\nhttps://github.com/gazijarin/itsgiving",
+    "url": "https://github.com/gazijarin/itsgiving",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvgq4lgjv62z",
+    "cid": "bafyreifejjh5kua3wxyxeujprou6jyhrhnaxaprn2spuyrsqmcunfwb4fe",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvgq4lgjv62z",
+    "dryRun": false,
+    "digest": {
+      "name": "itsgiving",
+      "oneLiner": "会議でミームを使って自己表現するためのもの",
+      "message": "会議中のやりとりを少し遊びたい人は、一度見てみてください",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
