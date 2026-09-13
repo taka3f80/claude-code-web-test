@@ -39,5 +39,29 @@
     "score": 0,
     "reward": 0,
     "measuredAt": "2026-09-12T17:13:20.400Z"
+  },
+  {
+    "id": "8ef476b4-e07d-42f0-a7a4-3463ce203ac6",
+    "date": "2026-09-13",
+    "postedAt": "2026-09-13T13:19:44.794Z",
+    "sourceId": "hackernews",
+    "itemId": "hn-49665864",
+    "text": "【海外で話題のツール】ResolveHQ：Cloudflare Workers、D1、R2、Queues 上のヘルプデスク\nCloudflare で動くヘルプデスクを試したい人は、一度見てみてください\n海外の開発者掲示板 Hacker News で、作った本人が発表して話題\nhttps://github.com/mirza-rizvi/ResolveHQ",
+    "url": "https://github.com/mirza-rizvi/ResolveHQ",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvfoq3wg7l2i",
+    "cid": "bafyreibzsowexb4if22za7mtqc7p3b2j4r67f52lura6rjwagfjhoeimga",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvfoq3wg7l2i",
+    "dryRun": false,
+    "digest": {
+      "name": "ResolveHQ",
+      "oneLiner": "Cloudflare Workers、D1、R2、Queues 上のヘルプデスク",
+      "message": "Cloudflare で動くヘルプデスクを試したい人は、一度見てみてください",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
