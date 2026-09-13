@@ -13,7 +13,7 @@
 - **次の変更の順番（1 回 1 つ、タカさんの判断待ち）**: (2) GitHub を 7 日/50★ → 90 日/1000★（`sources.json` のみ。副作用: AI 開発基盤に偏る）。(3) はてなブックマーク件数の門（30 件以上は「日本で既知」として落とす。無認証・無料、実測済み）。(4) Show HN を 30 → 100 点。
 - **調査が正直に書いた限界（ハルも同意）**: 新着フィードは構造的に「海外で定着済み・日本で未紹介」（Arcade、Skool の類）を出せない。自動ソースは候補を探す網であり、選定の本命は 9/12 の手作業リスト。次の段階は、その 30 本を風見鶏の第 3 のソース（台帳）にして表現の型を試すこと（BUSINESS.md 4 章の 3 と同じ）。
 - **GitHub の schedule が当てにならない（2026-09-13 夜）**: 9/13 は 6 枠中 3 枠しか発火せず（11:17、17:17 は未発火、20:17 も 20:52 時点で未発火）、発火した枠も 1.5〜3 時間遅れ。手動 dispatch は毎回数秒で走るので workflow は健全。GitHub 公式も「高負荷時に遅延、キューが破棄されることがある」と明記。**対策: 時計を Cloudflare に移した。** `../foreword/worker/trigger.ts` + `wrangler.jsonc` の `triggers.crons`（同じ 6 枠、UTC）が workflow_dispatch（dry_run=false）を叩く。5xx と通信エラーは 3 回まで再試行、4xx は再試行しない。vitest 14 件通過、`wrangler dev --test-scheduled` で偽トークンにより 401 が返るところまで配線確認済み。GitHub 側の投稿 cron は当面フォールバックとして残す（二重発火は concurrency と postsPerDay で無害）。数日 Worker が発火したのを見てから外す。
-- **タカさんの手（未了）**: GitHub の fine-grained PAT（対象 claude-code-web-test のみ、Actions: Read and write）を作り、`../foreword` で `npx wrangler secret put GH_DISPATCH_TOKEN` に貼る。その後 `npm run deploy`（ハルが実行、タカさん OK 後）。確認は次の枠で Actions に `workflow_dispatch` の run が定刻に出るか。
+- **PAT 登録・deploy 済み（2026-09-13 21:10 JST）**: タカさんが fine-grained PAT（無期限、対象リポジトリのみ、Actions: Read and write）を `wrangler secret put GH_DISPATCH_TOKEN` で登録。ハルが `npm run deploy`（Version c1144ac7）。deploy 後もサイト 200、`/.well-known/atproto-did` 200、`/go/nope` 404 を確認。**最初の Worker 発火は 23:17 JST。** Actions に `workflow_dispatch` の run が定刻に出れば時計の移設は完了。出なければ Cloudflare のダッシュボード → Workers → foreword → Logs で `bsky trigger` の行を見る。
 - **方針への反映**: `docs/BUSINESS.md` v0.5.1（2.5、7、8）。9/12 夜の「HN と GitHub は投稿源ではなく発見器」は、この決定で上書き（廃案台帳に記録）。
 
 ## 0. 2026-09-12 ローカルセッションでの更新
