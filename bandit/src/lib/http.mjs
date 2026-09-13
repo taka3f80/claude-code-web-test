@@ -1,4 +1,4 @@
-const UA = 'kazamidori-bot/0.1 (+https://bsky.app/profile/kazamidori-bot.bsky.social; +https://github.com/taka3f80/claude-code-web-test)';
+const UA = 'foreword-bot/0.2 (+https://bsky.app/profile/foreword.project-haru.org; +https://github.com/taka3f80/claude-code-web-test)';
 
 async function request(url, { headers = {}, fetchImpl = fetch, timeoutMs = 20000 } = {}) {
   const ctrl = new AbortController();

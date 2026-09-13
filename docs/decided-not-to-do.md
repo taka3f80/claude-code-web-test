@@ -21,4 +21,6 @@
 | 2026-09-12 夜 | 名前 Sopiva | 日本の北欧家具店と同名。実験のために被せに行くのは申し訳ない（タカさん） | Foreword | Worker `sopiva`、D1 `sopiva`、フォルダ名 `02.Code/sopiva` はすべて削除・改名済み（2026-09-12 夜） |
 | 2026-09-12 夜 | 名前 Dejima（出島） | 式には合うが、一言でダサい（タカさん） | Foreword | この行のみ |
 | 2026-09-12 夜 | 名前候補 Landfall / Portside / Firstlight / Logbook | Landfall は日本の Web 代理店（landfall-inc.co.jp）、Portside は米の航空 SaaS、Firstlight は多数、Logbook は一般名詞 | Foreword（辞書の意味以外にほぼ同名なし） | この行のみ |
-
+| 2026-09-13 | HN と GitHub を投稿源から外し、候補ツールの発見器として裏だけで回す（9/12 夜の決定） | タカさんが風見鶏に「調査と拡散」の役割を求めた。英語のまま出すのが問題だったので、日本語の一言を付けて投稿源に戻す | Show HN + GitHub 新着を投稿源に復帰、OpenAI API で日本語ダイジェスト | `docs/BUSINESS.md` 2.5、`bandit/README.md` |
+| 2026-09-13 | 日本語ダイジェストを Claude Code のルーティン（クラウド）で書き、投稿は Actions に渡す二段構え | ルーティンは PC 不要で動くが、投稿直前に API を 1 回呼ぶだけで足りる。秘密情報の置き場が増える理由が無い | Actions の中で OpenAI API を 1 回呼ぶ | この行のみ |
+| 2026-09-13 | ダイジェストに Claude API（Opus 5 / Sonnet 5）を使う | 費用はどちらも誤差だが、タカさんの OpenAI 残高 $4.81 が遊んでいた | OpenAI gpt-5.4-mini。`sources.json` の `digest.model` で切替、API 形式は `digest.mjs` に閉じている | この行のみ |

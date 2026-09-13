@@ -4,8 +4,8 @@ import { readFileSync } from 'node:fs';
 import { parseArxiv, format as fmtArxiv } from '../src/sources/arxiv.mjs';
 import { selectQuakes, format as fmtQuake } from '../src/sources/jma-quake.mjs';
 import { selectArticles, fetchCandidates as fetchWp } from '../src/sources/wikipedia-mostread.mjs';
-import { toItem, fetchCandidates as fetchHn } from '../src/sources/hackernews.mjs';
-import { toItems, fetchCandidates as fetchGh } from '../src/sources/github-new-repos.mjs';
+import { toItem, fetchCandidates as fetchHn, digestInput as hnDigestInput, format as fmtHn } from '../src/sources/hackernews.mjs';
+import { toItems, fetchCandidates as fetchGh, digestInput as ghDigestInput, format as fmtGh } from '../src/sources/github-new-repos.mjs';
 
 const fx = (n) => readFileSync(new URL(`./fixtures/${n}`, import.meta.url), 'utf8');
 
@@ -87,4 +87,27 @@ test('github: builds query with since date and token header', async () => {
   assert.match(seen.url, /q=created%3A%3E2026-09-04%20stars%3A%3E%3D50/);
   assert.equal(seen.opts.headers.authorization, 'Bearer t0k');
   assert.deepEqual(toItems(null), []);
+});
+
+test('hackernews: show feed, self-text stripped, digest input and Japanese format', async () => {
+  const db = {
+    'https://hacker-news.firebaseio.com/v0/showstories.json': [20],
+    'https://hacker-news.firebaseio.com/v0/item/20.json': { id: 20, type: 'story', title: 'Show HN: Arcade – demos from clicks', score: 40, url: 'https://arcade.software', text: 'Hi HN,<p>we built <a href="x">this</a> &amp; that' },
+  };
+  const items = await fetchHn({ feed: 'show', minScore: 30, lookAt: 10 }, { getJson: async (u) => db[u] });
+  assert.equal(items.length, 1);
+  assert.equal(items[0].text, 'Hi HN, we built this & that');
+  const di = hnDigestInput(items[0]);
+  assert.deepEqual(di, { name: 'Show HN: Arcade – demos from clicks', text: 'Hi HN, we built this & that', url: 'https://arcade.software' });
+  const ja = fmtHn(items[0], {}, { name: 'Arcade', oneLiner: 'クリックから製品デモを作る', message: 'デモを撮り直している人向け' });
+  assert.equal(ja.body, '【海外で話題のツール】Arcade：クリックから製品デモを作る\nデモを撮り直している人向け\n海外の開発者掲示板 Hacker News で、作った本人が発表して話題');
+  assert.equal(ja.url, 'https://arcade.software');
+  assert.match(fmtHn(items[0], {}).body, /^【Hacker News トップ】Show HN/);
+});
+
+test('github: digest input and Japanese format', () => {
+  const [item] = toItems({ items: [{ full_name: 'a/b', description: 'A tiny tool', stargazers_count: 77, language: 'Rust', html_url: 'https://github.com/a/b' }] });
+  assert.deepEqual(ghDigestInput(item), { name: 'a/b', text: 'A tiny tool', url: 'https://github.com/a/b' });
+  const ja = fmtGh(item, {}, { name: 'b', oneLiner: '小さな道具', message: '道具が好きな人向け' });
+  assert.equal(ja.body, '【海外で話題のツール】b：小さな道具\n道具が好きな人向け\n公開 1 週間で GitHub ★77 / Rust');
 });
