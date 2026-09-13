@@ -44,7 +44,7 @@ LLM の出番は 1 か所だけ: 投稿直前に英語の題名と説明文か�
 ソースを足すには `src/sources/` にモジュールを 1 つ追加し、`index.mjs` と `sources.json` に登録する。
 モジュールは `id`, `name`, `langs`, `fetchCandidates(params, ctx)`, `format(item, params, digest)` を export する。
 日本語ダイジェストを使うソースは `digestInput(item)` → `{ name, text, url }` も export する。LLM が読めるのはこの 3 つだけ。
-`format` は `digest`（`{ name, oneLiner, message }`）があれば「【海外で話題のツール】名前：一言 / 読者への一言メッセージ / どこで話題か（読者向けの言葉）」の 3 行、無ければ従来の英語テンプレート。
+`format` は `digest`（`{ name, oneLiner, message, kind }`）があれば 2 行 + URL、無ければ従来の英語テンプレート。1 行目は看板「【海外で話題のツール】名前：何をするか【出典・点数】」（例 `【Show HN・128pt】`、`【GitHub・★2,185】`）、2 行目は独立して読める説明 2 文（誰向けか・何ができるか、どう楽になるか）で必ず「。」で終える（タカさん、2026-09-14）。
 `digest.enabled` のとき、ダイジェストの取得に失敗した item は投稿せず `runs.json` に `digest-error` で残す（英語のまま出さない）。
 ダイジェストの `kind` が「サービス・アプリ」以外（ライブラリ・部品 / 読み物・作品 / その他）の item も投稿しない（門 1、`docs/research/2026-09-13-source-landscape.md` 2 章）。落ちたら同じソースの次の候補を試し、1 回の実行で `digest.maxTriesPerSource`（既定 3）件まで。全部落ちたら `all-skipped`。
 投稿の枠（接頭辞）は日本語。英語の中身を含む投稿は `langs: ['ja', 'en']` で両方の読者に届ける。

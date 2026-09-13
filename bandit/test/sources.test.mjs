@@ -99,8 +99,8 @@ test('hackernews: show feed, self-text stripped, digest input and Japanese forma
   assert.equal(items[0].text, 'Hi HN, we built this & that');
   const di = hnDigestInput(items[0]);
   assert.deepEqual(di, { name: 'Show HN: Arcade – demos from clicks', text: 'Hi HN, we built this & that', url: 'https://arcade.software' });
-  const ja = fmtHn(items[0], {}, { name: 'Arcade', oneLiner: 'クリックから製品デモを作る', message: 'デモを撮り直している人向け' });
-  assert.equal(ja.body, '【海外で話題のツール】Arcade：クリックから製品デモを作る\nデモを撮り直している人向け\n海外の開発者掲示板 Hacker News で、作った本人が発表して話題');
+  const ja = fmtHn(items[0], {}, { name: 'Arcade', oneLiner: 'クリックから製品デモを作る', message: 'デモを撮り直している人向けです。' });
+  assert.equal(ja.body, '【海外で話題のツール】Arcade：クリックから製品デモを作る【Show HN・40pt】\nデモを撮り直している人向けです。');
   assert.equal(ja.url, 'https://arcade.software');
   assert.match(fmtHn(items[0], {}).body, /^【Hacker News トップ】Show HN/);
 });
@@ -108,6 +108,6 @@ test('hackernews: show feed, self-text stripped, digest input and Japanese forma
 test('github: digest input and Japanese format', () => {
   const [item] = toItems({ items: [{ full_name: 'a/b', description: 'A tiny tool', stargazers_count: 77, language: 'Rust', html_url: 'https://github.com/a/b' }] });
   assert.deepEqual(ghDigestInput(item), { name: 'a/b', text: 'A tiny tool', url: 'https://github.com/a/b' });
-  const ja = fmtGh(item, {}, { name: 'b', oneLiner: '小さな道具', message: '道具が好きな人向け' });
-  assert.equal(ja.body, '【海外で話題のツール】b：小さな道具\n道具が好きな人向け\n公開 1 週間で GitHub ★77 / Rust');
+  const ja = fmtGh(item, {}, { name: 'b', oneLiner: '小さな道具', message: '道具が好きな人向けです。' });
+  assert.equal(ja.body, '【海外で話題のツール】b：小さな道具【GitHub・★77】\n道具が好きな人向けです。');
 });

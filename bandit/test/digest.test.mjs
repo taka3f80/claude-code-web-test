@@ -25,7 +25,9 @@ test('buildDigestRequest: model, strict schema, and the source text go into the 
 
 test('parseDigestResponse: reads output_text JSON, rejects empty or missing fields', () => {
   const good = { output: [{ type: 'message', content: [{ type: 'output_text', text: '{"name":"Arcade","oneLiner":"クリックした画面を対話型デモにする。","message":"デモを撮り直している人は一度見てみてください！","kind":"サービス・アプリ"}' }] }] };
-  assert.deepEqual(parseDigestResponse(good), { name: 'Arcade', oneLiner: 'クリックした画面を対話型デモにする', message: 'デモを撮り直している人は一度見てみてください', kind: 'サービス・アプリ' });
+  assert.deepEqual(parseDigestResponse(good), { name: 'Arcade', oneLiner: 'クリックした画面を対話型デモにする', message: 'デモを撮り直している人は一度見てみてください。', kind: 'サービス・アプリ' });
+  const withPeriod = { output: [{ type: 'message', content: [{ type: 'output_text', text: '{"name":"x","oneLiner":"y","message":"二文です。締めです。","kind":"その他"}' }] }] };
+  assert.equal(parseDigestResponse(withPeriod).message, '二文です。締めです。');
   const unknownKind = { output: [{ type: 'message', content: [{ type: 'output_text', text: '{"name":"x","oneLiner":"y","message":"z","kind":"変な値"}' }] }] };
   assert.equal(parseDigestResponse(unknownKind).kind, 'その他');
   assert.throws(() => parseDigestResponse({ output: [] }), /no output_text/);

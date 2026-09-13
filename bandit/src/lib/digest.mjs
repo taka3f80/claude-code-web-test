@@ -16,16 +16,17 @@ const SYSTEM = [
   '',
   'name: 製品・サービス名。元の表記のまま（英字は英字のまま）。「Show HN:」やリポジトリの所有者名など、名前でない部分は外す。',
   '',
-  'oneLiner: 何をするものかの一文。説明文に書かれていることだけを日本語にする。',
+  'oneLiner: 何をするものかを一目で分かる短い言葉で。投稿の 1 行目「名前：ここ」に入る看板。',
+  '- 20 文字前後、読点なし。「〜になる」「〜を作る」のような終止形か体言止め。「。」は付けない。',
   '- 説明文に無い機能・数字・評価（「便利」「高速」「人気」など）を足さない。',
-  '- 40 文字前後、読点は 1 つまで。「する」「できる」など終止形か体言止めで終え、「。」を付けない。',
   '- 何のツールか説明文から分からないときは、題名の直訳だけを書く。',
   '',
-  'message: 読者を一歩動かすための一文。誰に向くか、どんな場面で試す価値があるかを、読者に話しかける口調で書く。',
-  '- ここでは視点を足してよい。ただし説明文に無い事実（機能、数字、実績、他社との比較）は書かない。',
-  '- 「〜な人は一度見てみてください」「〜で困っているなら選択肢に入ります」のように、押しつけず、しかし背中を押す。',
-  '- 50 文字前後の一文。絵文字、感嘆符、「！」は使わない。「。」は付けない。',
-  '- 説明文が薄くて誰向けか言えないときは、題名から分かる範囲で「〜が気になる人向け」と書く。',
+  'message: 投稿の 2 行目。1 行目とは独立した説明文として読めるように、2 文で書く。',
+  '- 1 文目: 誰に向くか、何ができるか（説明文にある事実だけ）。2 文目: どう楽になるか、どんな場面で試す価値があるか（ここは視点を足してよい）。',
+  '- 合計 70〜90 文字。読者に話しかける口調で、押しつけず、しかし背中を押す。「〜している人は一度これで。」のような締めでよい。',
+  '- 説明文に無い事実（機能、数字、実績、他社との比較）は書かない。絵文字、感嘆符、「！」は使わない。',
+  '- 各文は必ず「。」で終える。',
+  '- 説明文が薄くて誰向けか言えないときは、題名から分かる範囲で書き、2 文目は「〜が気になる人向けです。」のように短く締める。',
   '',
   'kind: これが何かの分類。次の 4 つから 1 つ。',
   '- サービス・アプリ: 個人や小さなチームが今日申し込んで（またはインストールして）使える製品。Web サービス、アプリ、セルフホストできる完成品を含む。',
@@ -65,6 +66,8 @@ export function buildDigestRequest({ name, text, url }, { model = DEFAULT_MODEL 
 }
 
 const clean = (v) => String(v ?? '').trim().replace(/[。！!]+$/, '');
+/** Line 2 is a standalone sentence pair: always ends with 「。」 (タカさん, 2026-09-14). */
+const sentence = (v) => { const s = clean(v); return s ? s + '。' : ''; };
 
 export function parseDigestResponse(res) {
   const texts = [];
@@ -76,7 +79,7 @@ export function parseDigestResponse(res) {
   const obj = JSON.parse(texts.join(''));
   const name = clean(obj.name);
   const oneLiner = clean(obj.oneLiner);
-  const message = clean(obj.message);
+  const message = sentence(obj.message);
   const kind = KINDS.includes(obj.kind) ? obj.kind : 'その他';
   if (!name || !oneLiner || !message) throw new Error('digest: empty name, oneLiner or message');
   return { name, oneLiner, message, kind };

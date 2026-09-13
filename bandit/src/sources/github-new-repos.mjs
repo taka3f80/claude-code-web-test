@@ -33,7 +33,7 @@ export function format(item, params = {}, digest = null) {
   const lang = item.language ? ` / ${item.language}` : '';
   if (digest) {
     const stars = item.stars.toLocaleString('en-US');
-    return { body: `【海外で話題のツール】${digest.name}：${digest.oneLiner}\n${digest.message}\n公開 1 週間で GitHub ★${stars}${lang}`, url: item.url };
+    return { body: `【海外で話題のツール】${digest.name}：${digest.oneLiner}【GitHub・★${stars}】\n${digest.message}`, url: item.url };
   }
   const desc = item.description ? `\n${item.description}` : '';
   return { body: `【今週生まれたGitHubリポジトリ】${item.fullName} ★${item.stars}${lang}${desc}`, url: item.url };

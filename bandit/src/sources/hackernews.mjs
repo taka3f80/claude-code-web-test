@@ -41,10 +41,9 @@ export function digestInput(item) {
 
 export function format(item, params = {}, digest = null) {
   if (digest) {
-    const origin = /^show hn/i.test(item.title)
-      ? '海外の開発者掲示板 Hacker News で、作った本人が発表して話題'
-      : '海外の開発者掲示板 Hacker News で今日話題';
-    return { body: `【海外で話題のツール】${digest.name}：${digest.oneLiner}\n${digest.message}\n${origin}`, url: item.url };
+    // Line 1 is the signboard: name, what it does, and the source as a symbol. Line 2 is a standalone explanation.
+    const origin = /^show hn/i.test(item.title) ? 'Show HN' : 'Hacker News';
+    return { body: `【海外で話題のツール】${digest.name}：${digest.oneLiner}【${origin}・${item.score}pt】\n${digest.message}`, url: item.url };
   }
   return { body: `【Hacker News トップ】${item.title}（${item.score} points）`, url: item.url };
 }
