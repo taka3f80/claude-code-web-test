@@ -11,7 +11,8 @@
 
 - `bandit/` : Bluesky bot「風見鶏」(kazamidori-bot.bsky.social)。公開データソースを反応で競わせて投稿する。詳細は `bandit/README.md`。
 - `data/bsky/` : 風見鶏のログと状態。追記専用。過去の行を書き換えない。
-- `.github/workflows/bsky-bandit.yml` : 日中6回の定期実行。データを `main` にコミットする。
+- `data/tools/ledger.json` : 台帳。海外で定着・日本で未紹介のツール 30 本（人手で選定）。これは正典なので手で編集してよい。
+- `.github/workflows/bsky-bandit.yml` : 日中6回の実行（起動は Foreword の Cloudflare Worker の cron、GitHub の schedule はフォールバック）。データを `main` にコミットする。
 - `.claude/skills/bsky-source-bandit/` : 週次レビューの手順。
 - `index.html` : 昔作ったポモドーロタイマー。無関係。
 

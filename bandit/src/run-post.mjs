@@ -83,7 +83,7 @@ for (const sourceId of ranking.order) {
   }
 
   // Walk the fresh candidates (at most `digest.maxTriesPerSource` digest calls) until one passes gate 1.
-  const useDigest = digestCfg.enabled && typeof mod.digestInput === 'function';
+  const useDigest = digestCfg.enabled && typeof mod.digestInput === 'function'; // mod.skipKindGate: hand-curated sources bypass gate 1
   let item = null;
   let digest = null;
   let errored = false;
@@ -103,7 +103,7 @@ for (const sourceId of ranking.order) {
       run.results.push({ sourceId, outcome: 'digest-error', itemId: cand.itemId, error: e.message.slice(0, 200) });
       errored = true; break;
     }
-    if (d.kind !== POSTABLE_KIND) {
+    if (d.kind !== POSTABLE_KIND && !mod.skipKindGate) {
       // Gate 1: only services/apps a reader can sign up for today. What was dropped is logged so the gate can be audited.
       console.log(`[post] ${sourceId}: kind-skip (${d.kind}) ${cand.itemId} ${d.name}: ${d.oneLiner}`);
       run.results.push({ sourceId, outcome: 'kind-skip', itemId: cand.itemId, kind: d.kind, name: d.name, oneLiner: d.oneLiner });

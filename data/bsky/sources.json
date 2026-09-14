@@ -10,6 +10,9 @@
     { "id": "jma-quake", "enabled": false, "params": { "minIntensity": "3", "withinHours": 24 } },
     { "id": "wikipedia-mostread", "enabled": false, "params": { "lang": "ja" } },
     { "id": "hackernews", "enabled": true, "params": { "feed": "show", "minScore": 20, "lookAt": 20 } },
-    { "id": "github-new-repos", "enabled": true, "params": { "days": 90, "minStars": 300, "topics": ["self-hosted", "saas", "productivity", "automation", "browser-extension"], "requireHomepage": true, "perPage": 50 } }
+    { "id": "github-new-repos", "enabled": true, "params": { "days": 90, "minStars": 300, "topics": ["self-hosted", "saas", "productivity", "automation", "browser-extension"], "requireHomepage": true, "perPage": 50 } },
+    { "id": "ledger", "enabled": true, "params": {} },
+    { "id": "fazier", "enabled": true, "params": { "minUpvotes": 20 } },
+    { "id": "console-dev", "enabled": true, "params": {} }
   ]
 }

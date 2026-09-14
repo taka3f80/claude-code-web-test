@@ -26,6 +26,7 @@ LLM の出番は 1 か所だけ: 投稿直前に英語の題名と説明文か�
 | `data/bsky/posts.json` | 投稿ログ（追記専用）。`digest` に日本語の一言とモデル名、metrics と reward は計測時に埋まる |
 | `data/bsky/runs.json` | 実行ごとの順位付けと各ソースの結果（posted / no-fresh-item / fetch-error / digest-error / kind-skip …）。kind-skip には落とした item の名前と一言も残す（門の監査用） |
 | `data/bsky/skipped.json` | kind-skip で落とした item の id（追記専用）。二度とダイジェストに回さない |
+| `data/tools/ledger.json` | 台帳。人手で選んだ 30 本（`data/bsky` と違って手で編集してよい）。`enabled: false` で外せる |
 | `data/bsky/profile-history.json` | フォロワー数の日次スナップショット |
 | `data/bsky/reports/*.md` | 週次レポート |
 
@@ -37,9 +38,12 @@ LLM の出番は 1 か所だけ: 投稿直前に英語の題名と説明文か�
 | `jma-quake` | 気象庁 地震情報。直近 24h・最大震度 3 以上のときだけ |
 | `wikipedia-mostread` | 日本語 Wikipedia で昨日よく読まれた記事 |
 | `hackernews` | Hacker News。`feed: 'top'`（トップ）か `'show'`（Show HN、作った人の発表）。`minScore` 以上のみ |
+| `ledger` | Foreword の台帳 `data/tools/ledger.json`（海外で定着・日本で未紹介の 30 本、人手で選定）。一覧の順に 1 本ずつ。門 1 は通さない（人が確認済み） |
+| `fazier` | Fazier（海外のローンチ掲示板）。ホームの埋め込み JSON から `minUpvotes` 以上を票数順。公式 API は無く、ページ構造が変わると壊れる |
+| `console-dev` | Console.dev の週刊レター RSS（Tool / Beta）。開発者向けが多く門 1 で落ちやすい |
 | `github-new-repos` | GitHub の新しい製品リポジトリ。`topics` ごとに検索し、作成 `days` 日以内・`minStars` 以上・fork と archived 除外・`requireHomepage` なら製品サイトのあるものだけ。`perPage` 件/クエリ（無認証は 10 回/分の制限） |
 
-2026-09-14 現在、有効なのは `hackernews`（show, 20 points 以上）と `github-new-repos`（5 トピック、90 日 / 300★、製品サイト必須）の 2 つ。他 3 つは Foreword の趣旨（海外のツール）に合わないので停止中。ソースを足すときは各サイトの robots.txt を人が読み、AI bot を名指しで禁止しているサイトは使わない（BUSINESS.md 8）。
+2026-09-14 現在、有効なのは `hackernews`（show, 20 points 以上）、`github-new-repos`（5 トピック、90 日 / 300★、製品サイト必須）、`ledger`、`fazier`（20 upvotes 以上）、`console-dev` の 5 つ。他 3 つは Foreword の趣旨（海外のツール）に合わないので停止中。ソースを足すときは各サイトの robots.txt を人が読み、AI bot を名指しで禁止しているサイトは使わない（BUSINESS.md 8）。
 
 ソースを足すには `src/sources/` にモジュールを 1 つ追加し、`index.mjs` と `sources.json` に登録する。
 モジュールは `id`, `name`, `langs`, `fetchCandidates(params, ctx)`, `format(item, params, digest)` を export する。

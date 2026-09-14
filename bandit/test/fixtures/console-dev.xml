@@ -1,0 +1,56 @@
+<rss version="2.0">
+  <channel>
+    <title>Console.dev Devtools Newsletter - Everything Feed</title>
+    <description>Reviews of the most interesting devtools and latest beta releases.</description>
+    <link>https://console.dev</link>
+    <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    <item>
+      <title>Tool: htmx 4</title>
+      <description><![CDATA[<p><strong>Description:</strong> Enhance HTML.</p><p><strong>What we like:</strong> Simplifies the approach to adding attributes to HTML tags for dynamic features. Now uses fetch(). Makes it easy to implement features like infinite scroll, form post, search as you type, polling, and streaming responses. Still pretty minimal (11kb) and no dependencies.</p><p><strong>What we dislike:</strong> Lots of attributes littered all over your HTML, but that is the point.</p>]]></description>
+      <link>https://four.htmx.org?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Tool: Solo</title>
+      <description><![CDATA[<p><strong>Description:</strong> Loader for Linux static binaries.</p><p><strong>What we like:</strong> Makes static binaries for GPU-accelerated code actually work. Makes it easy to build self-contained applications that can benefit from acceleration. Compile to musl, but still use common shared packages.</p><p><strong>What we dislike:</strong> Incomplete ABI coverage: unsupported glibc calls currently abort. Musl has its own compatibility issues.</p>]]></description>
+      <link>https://github.com/pg83/solo?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Beta: Copperhead</title>
+      <description><![CDATA[Cursor for circuit boards.]]></description>
+      <link>https://copperhead.sh?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Beta: WebLLM</title>
+      <description><![CDATA[In-browser LLM inference.]]></description>
+      <link>https://github.com/mlc-ai/web-llm?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Beta: PAIR</title>
+      <description><![CDATA[Personal AI Router.]]></description>
+      <link>https://github.com/NVIDIA/Personal-AI-Router?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Beta: Vidact</title>
+      <description><![CDATA[Compile React-style components to DOM.]]></description>
+      <link>https://www.vidact.dev?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Beta: Archify</title>
+      <description><![CDATA[HTML architecture diagrams.]]></description>
+      <link>https://tt-a1i.github.io/archify/?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Beta: Purego</title>
+      <description><![CDATA[Call C functions from Go without Cgo.]]></description>
+      <link>https://github.com/ebitengine/purego?ref=console.dev</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
