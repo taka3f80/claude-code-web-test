@@ -427,5 +427,90 @@
         "itemId": "ledger-heptabase"
       }
     ]
+  },
+  {
+    "date": "2026-09-15",
+    "at": "2026-09-14T15:02:35.597Z",
+    "dryRun": false,
+    "order": [
+      "console-dev",
+      "github-new-repos",
+      "ledger",
+      "hackernews",
+      "fazier"
+    ],
+    "forced": [],
+    "draws": {
+      "console-dev": 0.4708,
+      "github-new-repos": 0.4627,
+      "ledger": 0.3658,
+      "hackernews": 0.3127,
+      "fazier": 0.2197
+    },
+    "results": [
+      {
+        "sourceId": "console-dev",
+        "outcome": "kind-skip",
+        "itemId": "console-https://github.com/mlc-ai/web-llm",
+        "kind": "ライブラリ・部品",
+        "name": "WebLLM",
+        "oneLiner": "ブラウザ内でLLM推論"
+      },
+      {
+        "sourceId": "console-dev",
+        "outcome": "kind-skip",
+        "itemId": "console-https://github.com/NVIDIA/Personal-AI-Router",
+        "kind": "ライブラリ・部品",
+        "name": "PAIR",
+        "oneLiner": "AI ルーター"
+      },
+      {
+        "sourceId": "console-dev",
+        "outcome": "kind-skip",
+        "itemId": "console-https://www.vidact.dev",
+        "kind": "ライブラリ・部品",
+        "name": "Vidact",
+        "oneLiner": "React風コンポーネントをDOMに変換"
+      },
+      {
+        "sourceId": "console-dev",
+        "outcome": "all-skipped",
+        "tried": 3
+      },
+      {
+        "sourceId": "github-new-repos",
+        "outcome": "kind-skip",
+        "itemId": "gh-kirodotdev/KiroCrew",
+        "kind": "ライブラリ・部品",
+        "name": "KiroCrew",
+        "oneLiner": "開発作業の持続ワークスペース"
+      },
+      {
+        "sourceId": "github-new-repos",
+        "outcome": "kind-skip",
+        "itemId": "gh-fuxicodex/Fuxi",
+        "kind": "ライブラリ・部品",
+        "name": "Fuxi",
+        "oneLiner": "端末で動くAIコーディングエージェント"
+      },
+      {
+        "sourceId": "github-new-repos",
+        "outcome": "kind-skip",
+        "itemId": "gh-AlephAITech/WorkBuddyGuide",
+        "kind": "読み物・作品",
+        "name": "WorkBuddyGuide",
+        "oneLiner": "WorkBuddyの実践ガイド"
+      },
+      {
+        "sourceId": "github-new-repos",
+        "outcome": "all-skipped",
+        "tried": 3
+      },
+      {
+        "sourceId": "ledger",
+        "outcome": "posted",
+        "itemId": "ledger-granola"
+      }
+    ]
   }
 ]

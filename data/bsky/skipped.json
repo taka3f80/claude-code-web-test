@@ -64,5 +64,41 @@
     "sourceId": "github-new-repos",
     "kind": "ライブラリ・部品",
     "at": "2026-09-14T05:23:22.051Z"
+  },
+  {
+    "itemId": "console-https://github.com/mlc-ai/web-llm",
+    "sourceId": "console-dev",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T15:02:35.597Z"
+  },
+  {
+    "itemId": "console-https://github.com/NVIDIA/Personal-AI-Router",
+    "sourceId": "console-dev",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T15:02:35.597Z"
+  },
+  {
+    "itemId": "console-https://www.vidact.dev",
+    "sourceId": "console-dev",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T15:02:35.597Z"
+  },
+  {
+    "itemId": "gh-kirodotdev/KiroCrew",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T15:02:35.597Z"
+  },
+  {
+    "itemId": "gh-fuxicodex/Fuxi",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T15:02:35.597Z"
+  },
+  {
+    "itemId": "gh-AlephAITech/WorkBuddyGuide",
+    "sourceId": "github-new-repos",
+    "kind": "読み物・作品",
+    "at": "2026-09-14T15:02:35.597Z"
   }
 ]

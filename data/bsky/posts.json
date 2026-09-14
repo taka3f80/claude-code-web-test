@@ -227,5 +227,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "d824b14d-a151-41a1-836f-8f122babf5ac",
+    "date": "2026-09-15",
+    "postedAt": "2026-09-14T15:02:35.597Z",
+    "sourceId": "ledger",
+    "itemId": "ledger-granola",
+    "text": "【海外で定着したツール】Granola：AI 会議メモ作成【評価額 $1.5B】\nボットを参加させずに会議を文字起こしし、自分のメモと合わせたい人向けです。議事録づくりをまとめて進めたい場面で試しやすいです。\nhttps://www.granola.ai/",
+    "url": "https://www.granola.ai/",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mviexaru7e2q",
+    "cid": "bafyreiaf22utvkzmirlmwsc5npikvdcprvhoc7rtvx44rzlweact63htqq",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mviexaru7e2q",
+    "dryRun": false,
+    "digest": {
+      "name": "Granola",
+      "oneLiner": "AI 会議メモ作成",
+      "message": "ボットを参加させずに会議を文字起こしし、自分のメモと合わせたい人向けです。議事録づくりをまとめて進めたい場面で試しやすいです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
