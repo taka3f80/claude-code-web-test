@@ -87,5 +87,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "152a67eb-45cd-424f-ab9f-696aad721ecb",
+    "date": "2026-09-14",
+    "postedAt": "2026-09-14T01:09:03.877Z",
+    "sourceId": "ledger",
+    "itemId": "ledger-tana",
+    "text": "【海外で定着したツール】Tana：AI知識グラフアウトライナー【$25M 調達】\nノートを構造化されたオブジェクトにして、supertags で整理できる人向けです。情報をため込むだけで終わらせたくないなら、一度見てみるとよさそうです。\nhttps://tana.inc/",
+    "url": "https://tana.inc/",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvgweelror2z",
+    "cid": "bafyreid4bkg6prqhxo6wio5n3t27bnsrzpbk5ie4svujrfsednl7ow46ke",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvgweelror2z",
+    "dryRun": false,
+    "digest": {
+      "name": "Tana",
+      "oneLiner": "AI知識グラフアウトライナー",
+      "message": "ノートを構造化されたオブジェクトにして、supertags で整理できる人向けです。情報をため込むだけで終わらせたくないなら、一度見てみるとよさそうです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
