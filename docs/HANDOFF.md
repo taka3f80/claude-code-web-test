@@ -7,6 +7,7 @@
 - **ソースの世界調査（9/14、Sonnet 5 系統 + Opus 統合）**: `docs/research/2026-09-14-source-landscape-worldwide.md`。タカさんの問い「ソースを増やして 1 日 6 本を安定させられるか」への答え。結論: 届く。推奨構成は Show HN（20 pt 以上）+ Fazier + GitHub トピック横断（homepage 必須）+ 台帳 30 本、予備に Console.dev で約 10〜12 件/日。ただし実測で裏の取れた床は約 3.2 件/日で、残りはゲート通過率未計測の推定。ハルの再確認: GitHub `topic:self-hosted` 90 日 / 200★ で 58 件、上位の大半が製品サイト付き。Fazier はホームの Next.js 埋め込み JSON（スクレイピング扱い、robots はホーム許可）。Product Hunt 公開フィードは 5〜10 件/日の遅延リストで、9/13 の「10〜20 件」を訂正。
 - **robots.txt の扱いは (b) で決定（タカさん、9/14）**: 名指しの AI bot 禁止と Content-Signal も尊重。Disquiet、GeekNews、Korben は使わない。BUSINESS.md 8 と廃案台帳に記録。
 - **ソース構成 v2 の 1〜2 番目を実装（9/14）**: (1) Show HN の `minScore` 30 → 20、`lookAt` 15 → 20。(2) GitHub ソースを改修: トピック横断（self-hosted / saas / productivity / automation / browser-extension）、作成 90 日以内、300★ 以上、fork と archived を除外、**製品サイト（homepage）必須**、取得 50 件/クエリ（旧 10 件）。投稿 URL はリポジトリのまま（homepage へ飛ばす案は保留）。テスト更新。残り: (3) 台帳 30 本、(4) Fazier、(5) Console.dev。
+- **v2 の dry-run 2 回（9/14 午前）**: 1 回目は門 1 が両方向に誤った（Web カメラの音の可視化デモを通し、Bento のオフィススイートを部品として落とした）。`digest.mjs` の kind 定義を「使う人がコードを書かずに今日使えるか」を軸に例つきで書き直し、2 回目で両方とも正しく判定（デモは落ち、Bento は通り、投稿文まで生成）。GitHub ソースは旧設定の 0 件から、候補 50 件・製品サイト付きが並ぶ状態になった。次の定期実行からこの設定で本番。
 
 ## 0-1. 2026-09-13 ローカルセッションでの更新
 
