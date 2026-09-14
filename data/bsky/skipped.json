@@ -46,5 +46,17 @@
     "sourceId": "github-new-repos",
     "kind": "ライブラリ・部品",
     "at": "2026-09-13T23:17:17.971Z"
+  },
+  {
+    "itemId": "console-https://four.htmx.org",
+    "sourceId": "console-dev",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T05:17:17.770Z"
+  },
+  {
+    "itemId": "console-https://github.com/pg83/solo",
+    "sourceId": "console-dev",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-14T05:17:17.770Z"
   }
 ]

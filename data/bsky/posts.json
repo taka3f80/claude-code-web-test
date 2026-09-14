@@ -140,5 +140,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "b792bb01-80c9-432a-9474-5a38209d0bfe",
+    "date": "2026-09-14",
+    "postedAt": "2026-09-14T05:17:17.770Z",
+    "sourceId": "console-dev",
+    "itemId": "console-https://copperhead.sh",
+    "text": "【海外で話題のツール】Copperhead：回路基板向けのCursor【Console.dev・Beta】\n回路基板の設計を支援するツールです。基板づくりの作業をまとめて進めたい人は一度見てみるとよさそうです。\nhttps://copperhead.sh",
+    "url": "https://copperhead.sh",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvheadqgpm2w",
+    "cid": "bafyreib5vxbujwbu5av7m6eyf5h4hf7oaynxrs7avkyfsw5356aibiazzm",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvheadqgpm2w",
+    "dryRun": false,
+    "digest": {
+      "name": "Copperhead",
+      "oneLiner": "回路基板向けのCursor",
+      "message": "回路基板の設計を支援するツールです。基板づくりの作業をまとめて進めたい人は一度見てみるとよさそうです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]

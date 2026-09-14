@@ -309,5 +309,49 @@
         "itemId": "fazier-11863"
       }
     ]
+  },
+  {
+    "date": "2026-09-14",
+    "at": "2026-09-14T05:17:17.770Z",
+    "dryRun": false,
+    "order": [
+      "console-dev",
+      "github-new-repos",
+      "fazier",
+      "ledger",
+      "hackernews"
+    ],
+    "forced": [
+      "console-dev"
+    ],
+    "draws": {
+      "github-new-repos": 0.6194,
+      "fazier": 0.4245,
+      "ledger": 0.3691,
+      "hackernews": 0.1893
+    },
+    "results": [
+      {
+        "sourceId": "console-dev",
+        "outcome": "kind-skip",
+        "itemId": "console-https://four.htmx.org",
+        "kind": "ライブラリ・部品",
+        "name": "htmx 4",
+        "oneLiner": "HTML を拡張する"
+      },
+      {
+        "sourceId": "console-dev",
+        "outcome": "kind-skip",
+        "itemId": "console-https://github.com/pg83/solo",
+        "kind": "ライブラリ・部品",
+        "name": "Solo",
+        "oneLiner": "Linux 静的バイナリ用ローダー"
+      },
+      {
+        "sourceId": "console-dev",
+        "outcome": "posted",
+        "itemId": "console-https://copperhead.sh"
+      }
+    ]
   }
 ]
