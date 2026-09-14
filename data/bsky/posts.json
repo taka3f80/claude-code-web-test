@@ -59,10 +59,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-14T02:17:19.167Z"
   },
   {
     "id": "9a7f595b-0643-46c2-95f3-045ae21fbb4b",
@@ -104,6 +109,30 @@
       "name": "Tana",
       "oneLiner": "AI知識グラフアウトライナー",
       "message": "ノートを構造化されたオブジェクトにして、supertags で整理できる人向けです。情報をため込むだけで終わらせたくないなら、一度見てみるとよさそうです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
+  },
+  {
+    "id": "e4cb3ef5-7bfa-4821-af50-a0eaf184b7e0",
+    "date": "2026-09-14",
+    "postedAt": "2026-09-14T02:17:19.766Z",
+    "sourceId": "fazier",
+    "itemId": "fazier-11863",
+    "text": "【海外で話題のツール】HelpStack：AI共有受信箱【Fazier・109pt】\nメールやチャット、SNSのサポートをまとめて扱いたい人向けのAI共有受信箱です。問い合わせ対応を一つに集めたいときに試す価値があります。\nhttps://fazier.com/launches/helpstack",
+    "url": "https://fazier.com/launches/helpstack",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvh26jcb2q2t",
+    "cid": "bafyreicoe23ghbmrbfumvtcxvtqoje6qmvwbooxejmjrh5e7h7k2pxqtfe",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvh26jcb2q2t",
+    "dryRun": false,
+    "digest": {
+      "name": "HelpStack",
+      "oneLiner": "AI共有受信箱",
+      "message": "メールやチャット、SNSのサポートをまとめて扱いたい人向けのAI共有受信箱です。問い合わせ対応を一つに集めたいときに試す価値があります。",
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
