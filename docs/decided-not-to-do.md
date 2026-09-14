@@ -25,3 +25,4 @@
 | 2026-09-13 | 日本語ダイジェストを Claude Code のルーティン（クラウド）で書き、投稿は Actions に渡す二段構え | ルーティンは PC 不要で動くが、投稿直前に API を 1 回呼ぶだけで足りる。秘密情報の置き場が増える理由が無い | Actions の中で OpenAI API を 1 回呼ぶ | この行のみ |
 | 2026-09-13 | ダイジェストに Claude API（Opus 5 / Sonnet 5）を使う | 費用はどちらも誤差だが、タカさんの OpenAI 残高 $4.81 が遊んでいた | OpenAI gpt-5.4-mini。`sources.json` の `digest.model` で切替、API 形式は `digest.mjs` に閉じている | この行のみ |
 | 2026-09-13 夜 | GitHub Actions の schedule を風見鶏の時計にする | 6 枠中 3 枠が未発火、発火しても 1.5〜3 時間遅れ（実測）。公式も遅延と破棄を明記 | Cloudflare Worker（foreword）の cron から workflow_dispatch を叩く。GitHub の cron は当面フォールバック | `../foreword/worker/trigger.ts`、`bandit/README.md` セットアップ 4 |
+| 2026-09-14 | robots.txt は `User-agent: *` の禁止だけ守り、ClaudeBot 等の名指し禁止は「bot 名が違う」として取る（案 a）、またはサイトごとに人が判断する（案 c） | Foreword の商品は海外ベンダーに信用される立場そのもので、取り方を指摘されたら商品ごと傷む。名指し禁止も守っても 6 本/日には届く（タカさん決定） | 名指しの AI bot 禁止と Content-Signal も尊重（案 b）。Disquiet、GeekNews、Korben は使わない | `docs/BUSINESS.md` 8、`docs/research/2026-09-14-source-landscape-worldwide.md` 3 章 |

@@ -37,9 +37,9 @@ LLM の出番は 1 か所だけ: 投稿直前に英語の題名と説明文か�
 | `jma-quake` | 気象庁 地震情報。直近 24h・最大震度 3 以上のときだけ |
 | `wikipedia-mostread` | 日本語 Wikipedia で昨日よく読まれた記事 |
 | `hackernews` | Hacker News。`feed: 'top'`（トップ）か `'show'`（Show HN、作った人の発表）。`minScore` 以上のみ |
-| `github-new-repos` | 直近 7 日に作られて 50★以上の GitHub リポジトリ |
+| `github-new-repos` | GitHub の新しい製品リポジトリ。`topics` ごとに検索し、作成 `days` 日以内・`minStars` 以上・fork と archived 除外・`requireHomepage` なら製品サイトのあるものだけ。`perPage` 件/クエリ（無認証は 10 回/分の制限） |
 
-2026-09-13 現在、有効なのは `hackernews`（show, 30 points 以上）と `github-new-repos` の 2 つ。他 3 つは Foreword の趣旨（海外のツール）に合わないので停止中。
+2026-09-14 現在、有効なのは `hackernews`（show, 20 points 以上）と `github-new-repos`（5 トピック、90 日 / 300★、製品サイト必須）の 2 つ。他 3 つは Foreword の趣旨（海外のツール）に合わないので停止中。ソースを足すときは各サイトの robots.txt を人が読み、AI bot を名指しで禁止しているサイトは使わない（BUSINESS.md 8）。
 
 ソースを足すには `src/sources/` にモジュールを 1 つ追加し、`index.mjs` と `sources.json` に登録する。
 モジュールは `id`, `name`, `langs`, `fetchCandidates(params, ctx)`, `format(item, params, digest)` を export する。

@@ -1,5 +1,5 @@
 export const id = 'github-new-repos';
-export const name = 'GitHub 今週の新規リポジトリ';
+export const name = 'GitHub の新しい製品リポジトリ';
 /** Post language tags: Japanese framing; content language where it differs. */
 export const langs = ['ja', 'en'];
 
@@ -10,18 +10,40 @@ export function toItems(result) {
     description: r.description ?? '',
     stars: r.stargazers_count ?? 0,
     language: r.language ?? null,
+    homepage: (r.homepage ?? '').trim() || null,
     url: r.html_url,
   }));
 }
 
-export async function fetchCandidates({ days = 7, minStars = 50 } = {}, ctx) {
+/**
+ * Params:
+ *   days, minStars      created within `days`, at least `minStars`
+ *   topics              array of GitHub topics; one search per topic (empty -> one untopic'd search)
+ *   requireHomepage     drop repos without a product site (parts rarely have one; products usually do)
+ *   perPage             results per query (max 100). Was 10, which starved the backlog.
+ * Search API: 10 req/min unauthenticated, 30 with GITHUB_TOKEN. Keep `topics` short.
+ * Rationale: docs/research/2026-09-14-source-landscape-worldwide.md 2.2 and 4.4.
+ */
+export async function fetchCandidates({ days = 7, minStars = 50, topics = [], requireHomepage = false, perPage = 50 } = {}, ctx) {
   const since = new Date(ctx.now.getTime() - days * 86400000).toISOString().slice(0, 10);
-  const q = encodeURIComponent(`created:>${since} stars:>=${minStars}`);
   const headers = { accept: 'application/vnd.github+json' };
   const token = ctx.env?.GITHUB_TOKEN;
   if (token) headers.authorization = `Bearer ${token}`;
-  const r = await ctx.getJson(`https://api.github.com/search/repositories?q=${q}&sort=stars&order=desc&per_page=10`, { headers });
-  return toItems(r);
+
+  const queries = (topics.length ? topics : [null]).map((t) =>
+    [t && `topic:${t}`, `created:>${since}`, `stars:>=${minStars}`, 'fork:false', 'archived:false'].filter(Boolean).join(' '),
+  );
+  const byId = new Map();
+  for (const q of queries) {
+    const r = await ctx.getJson(
+      `https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=${Math.min(100, perPage)}`,
+      { headers },
+    );
+    for (const item of toItems(r)) if (!byId.has(item.itemId)) byId.set(item.itemId, item);
+  }
+  let items = [...byId.values()];
+  if (requireHomepage) items = items.filter((i) => i.homepage);
+  return items.sort((a, b) => b.stars - a.stars);
 }
 
 /** What the Japanese digest step gets to read. Nothing else. */

@@ -75,7 +75,7 @@ test('hackernews: only stories above minScore, falls back to HN item url', async
   assert.equal(items[0].url, 'https://news.ycombinator.com/item?id=11');
 });
 
-test('github: builds query with since date and token header', async () => {
+test('github: builds query with since date, fork/archived exclusion, and token header', async () => {
   let seen;
   const ctx = {
     now: new Date('2026-09-11T00:00:00Z'),
@@ -84,9 +84,31 @@ test('github: builds query with since date and token header', async () => {
   };
   const items = await fetchGh({ days: 7, minStars: 50 }, ctx);
   assert.equal(items[0].itemId, 'gh-a/b');
-  assert.match(seen.url, /q=created%3A%3E2026-09-04%20stars%3A%3E%3D50/);
+  assert.equal(items[0].homepage, null);
+  assert.equal(decodeURIComponent(seen.url.split('q=')[1].split('&')[0]), 'created:>2026-09-04 stars:>=50 fork:false archived:false');
+  assert.match(seen.url, /per_page=50/);
   assert.equal(seen.opts.headers.authorization, 'Bearer t0k');
   assert.deepEqual(toItems(null), []);
+});
+
+test('github: one query per topic, dedupes, drops repos without a homepage, sorts by stars', async () => {
+  const calls = [];
+  const repo = (name, stars, homepage) => ({ full_name: name, description: 'd', stargazers_count: stars, html_url: `https://github.com/${name}`, homepage });
+  const ctx = {
+    now: new Date('2026-09-11T00:00:00Z'),
+    env: {},
+    getJson: async (url) => {
+      calls.push(decodeURIComponent(url));
+      if (url.includes('topic%3Aself-hosted')) return { items: [repo('a/one', 500, 'https://one.app'), repo('b/two', 900, '')] };
+      if (url.includes('topic%3Asaas')) return { items: [repo('a/one', 500, 'https://one.app'), repo('c/three', 700, ' https://three.app ')] };
+      return { items: [] };
+    },
+  };
+  const items = await fetchGh({ days: 90, minStars: 300, topics: ['self-hosted', 'saas'], requireHomepage: true, perPage: 100 }, ctx);
+  assert.equal(calls.length, 2);
+  assert.match(calls[0], /q=topic:self-hosted created:>2026-06-13 stars:>=300 fork:false archived:false/);
+  assert.deepEqual(items.map((i) => i.itemId), ['gh-c/three', 'gh-a/one']);
+  assert.equal(items[0].homepage, 'https://three.app');
 });
 
 test('hackernews: show feed, self-text stripped, digest input and Japanese format', async () => {
