@@ -164,5 +164,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "c20042f9-cb56-4641-a8ab-4a8cb49a5d9e",
+    "date": "2026-09-14",
+    "postedAt": "2026-09-14T05:23:22.051Z",
+    "sourceId": "github-new-repos",
+    "itemId": "gh-nyblnet/bento",
+    "text": "【海外で話題のツール】Bento：1ファイルで動くオフィススイート【GitHub・★5,009】\n1つのファイルで使えるオフィススイートです。手元で完結する文書作業を試したい人に向きます。\nhttps://github.com/nyblnet/bento",
+    "url": "https://github.com/nyblnet/bento",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvhelap5722i",
+    "cid": "bafyreicjph7ck63qvofa24z2fr3u37zhf6lqlrzqb5db2rjdcmlquutyde",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvhelap5722i",
+    "dryRun": false,
+    "digest": {
+      "name": "Bento",
+      "oneLiner": "1ファイルで動くオフィススイート",
+      "message": "1つのファイルで使えるオフィススイートです。手元で完結する文書作業を試したい人に向きます。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
