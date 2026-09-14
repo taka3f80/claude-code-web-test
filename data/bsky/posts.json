@@ -175,10 +175,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-14T23:17:22.041Z"
   },
   {
     "id": "c20042f9-cb56-4641-a8ab-4a8cb49a5d9e",
@@ -199,10 +204,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-14T23:17:22.041Z"
   },
   {
     "id": "3ec8b5b7-00de-4e4c-a035-c54856fd3bd1",
@@ -223,10 +233,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-14T23:17:22.041Z"
   },
   {
     "id": "d824b14d-a151-41a1-836f-8f122babf5ac",
@@ -244,6 +259,30 @@
       "name": "Granola",
       "oneLiner": "AI 会議メモ作成",
       "message": "ボットを参加させずに会議を文字起こしし、自分のメモと合わせたい人向けです。議事録づくりをまとめて進めたい場面で試しやすいです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
+  },
+  {
+    "id": "2383bed3-27f3-4027-8d01-9f2532a0c8d2",
+    "date": "2026-09-15",
+    "postedAt": "2026-09-14T23:17:22.612Z",
+    "sourceId": "fazier",
+    "itemId": "fazier-11944",
+    "text": "【海外で話題のツール】VioEvo：AI画像と動画を作る【Fazier・88pt】\n複数のAIモデルで画像と動画を作りたい人向けです。制作の入り口をひとつにまとめたいときに試せます。\nhttps://fazier.com/launches/vioevo",
+    "url": "https://fazier.com/launches/vioevo",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvjalms5vr2w",
+    "cid": "bafyreihyafjgxgxrsjmksxl3cfpfhe4w276i3jjvetog2ylbtichdx2aaq",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvjalms5vr2w",
+    "dryRun": false,
+    "digest": {
+      "name": "VioEvo",
+      "oneLiner": "AI画像と動画を作る",
+      "message": "複数のAIモデルで画像と動画を作りたい人向けです。制作の入り口をひとつにまとめたいときに試せます。",
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
