@@ -188,5 +188,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "3ec8b5b7-00de-4e4c-a035-c54856fd3bd1",
+    "date": "2026-09-14",
+    "postedAt": "2026-09-14T07:55:58.918Z",
+    "sourceId": "ledger",
+    "itemId": "ledger-heptabase",
+    "text": "【海外で定着したツール】Heptabase：白板型の知識管理ツール【PH Golden Kitty】\n学習や調査のために、無限キャンバス上でカードを並べて使う人向けです。情報を整理しながら考えたい人は、一度試してみる価値があります。\nhttps://heptabase.com/",
+    "url": "https://heptabase.com/",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvhn3z4zff2p",
+    "cid": "bafyreiempzxpcc6opgfl4vcu4xblfnvtlrjbug2wjemq4syrccn2l5gige",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvhn3z4zff2p",
+    "dryRun": false,
+    "digest": {
+      "name": "Heptabase",
+      "oneLiner": "白板型の知識管理ツール",
+      "message": "学習や調査のために、無限キャンバス上でカードを並べて使う人向けです。情報を整理しながら考えたい人は、一度試してみる価値があります。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]

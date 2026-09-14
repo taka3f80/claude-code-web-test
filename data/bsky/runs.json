@@ -392,5 +392,40 @@
         "itemId": "gh-nyblnet/bento"
       }
     ]
+  },
+  {
+    "date": "2026-09-14",
+    "at": "2026-09-14T07:55:58.918Z",
+    "dryRun": false,
+    "order": [
+      "github-new-repos",
+      "console-dev",
+      "ledger",
+      "hackernews",
+      "fazier"
+    ],
+    "forced": [],
+    "draws": {
+      "github-new-repos": 0.9327,
+      "console-dev": 0.9215,
+      "ledger": 0.7712,
+      "hackernews": 0.2437,
+      "fazier": 0.0984
+    },
+    "results": [
+      {
+        "sourceId": "github-new-repos",
+        "outcome": "cooldown"
+      },
+      {
+        "sourceId": "console-dev",
+        "outcome": "cooldown"
+      },
+      {
+        "sourceId": "ledger",
+        "outcome": "posted",
+        "itemId": "ledger-heptabase"
+      }
+    ]
   }
 ]
