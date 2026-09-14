@@ -117,10 +117,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-14T14:17:23.431Z"
   },
   {
     "id": "e4cb3ef5-7bfa-4821-af50-a0eaf184b7e0",
@@ -141,10 +146,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-14T14:17:23.431Z"
   },
   {
     "id": "b792bb01-80c9-432a-9474-5a38209d0bfe",

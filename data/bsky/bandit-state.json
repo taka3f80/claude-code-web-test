@@ -21,6 +21,20 @@
       "posts": 1,
       "successes": 0,
       "totalScore": 0
+    },
+    "ledger": {
+      "alpha": 1,
+      "beta": 2,
+      "posts": 1,
+      "successes": 0,
+      "totalScore": 0
+    },
+    "fazier": {
+      "alpha": 1,
+      "beta": 2,
+      "posts": 1,
+      "successes": 0,
+      "totalScore": 0
     }
   }
 }
