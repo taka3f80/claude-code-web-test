@@ -10,8 +10,8 @@
     },
     "hackernews": {
       "alpha": 1,
-      "beta": 2,
-      "posts": 1,
+      "beta": 3,
+      "posts": 2,
       "successes": 0,
       "totalScore": 0
     },
@@ -31,8 +31,8 @@
     },
     "fazier": {
       "alpha": 1,
-      "beta": 2,
-      "posts": 1,
+      "beta": 3,
+      "posts": 2,
       "successes": 0,
       "totalScore": 0
     },
