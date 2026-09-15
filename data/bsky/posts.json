@@ -367,5 +367,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "6039a3dc-ea0b-4913-9a5b-dac887c0886a",
+    "date": "2026-09-15",
+    "postedAt": "2026-09-15T07:48:03.379Z",
+    "sourceId": "fazier",
+    "itemId": "fazier-11900",
+    "text": "【海外で話題のツール】SubmitMap：投稿先と手順をまとめる【Fazier・83pt】\n新しい製品の投稿先と、各サイトへの出し方を知りたい人向けです。どこへ出すか迷うときの下調べに使えます。\nhttps://fazier.com/launches/submitmap",
+    "url": "https://fazier.com/launches/submitmap",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvk54rliz72t",
+    "cid": "bafyreig5ge34sficg4scn3xrysjovegodne3775qnwi2t46qux23tkvoci",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvk54rliz72t",
+    "dryRun": false,
+    "digest": {
+      "name": "SubmitMap",
+      "oneLiner": "投稿先と手順をまとめる",
+      "message": "新しい製品の投稿先と、各サイトへの出し方を知りたい人向けです。どこへ出すか迷うときの下調べに使えます。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
