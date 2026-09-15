@@ -314,5 +314,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "6e2e5d09-f058-4021-8d16-6e6a3f2e47a8",
+    "date": "2026-09-15",
+    "postedAt": "2026-09-15T02:17:21.672Z",
+    "sourceId": "console-dev",
+    "itemId": "console-https://tt-a1i.github.io/archify/",
+    "text": "【海外で話題のツール】Archify：HTMLの構成図を作る【Console.dev・Beta】\nHTMLの構成図を作りたい人向けのツールです。ページの構造を手早く見直したいときに試しやすいです。\nhttps://tt-a1i.github.io/archify/",
+    "url": "https://tt-a1i.github.io/archify/",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvjkngtusf2t",
+    "cid": "bafyreia2ncij4kfajx5k75l5wfaisn6hzjrlo66mlqlqlehbpodw634p2i",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvjkngtusf2t",
+    "dryRun": false,
+    "digest": {
+      "name": "Archify",
+      "oneLiner": "HTMLの構成図を作る",
+      "message": "HTMLの構成図を作りたい人向けのツールです。ページの構造を手早く見直したいときに試しやすいです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
