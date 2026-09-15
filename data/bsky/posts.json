@@ -290,5 +290,29 @@
     "score": null,
     "reward": null,
     "measuredAt": null
+  },
+  {
+    "id": "8d48d3cc-252c-4fcf-8348-6ba645f96d7d",
+    "date": "2026-09-15",
+    "postedAt": "2026-09-15T01:30:49.666Z",
+    "sourceId": "hackernews",
+    "itemId": "hn-49699159",
+    "text": "【海外で話題のツール】Neobrutalism.dev：ネオブルータリズム系UIを作る【Show HN・141pt】\nネオブルータリズム風のUIを作りたい人向けです。Base UI 対応と新しい配色テーマを試すなら一度見てみてください。\nhttps://www.neobrutalism.dev/",
+    "url": "https://www.neobrutalism.dev/",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvji2cq7oc26",
+    "cid": "bafyreiaddym7nuplvbf3hffl2qbkmgpodef3quprcpj5g6lizkauxlxlk4",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvji2cq7oc26",
+    "dryRun": false,
+    "digest": {
+      "name": "Neobrutalism.dev",
+      "oneLiner": "ネオブルータリズム系UIを作る",
+      "message": "ネオブルータリズム風のUIを作りたい人向けです。Base UI 対応と新しい配色テーマを試すなら一度見てみてください。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
   }
 ]
