@@ -17,8 +17,8 @@
     },
     "github-new-repos": {
       "alpha": 1,
-      "beta": 3,
-      "posts": 2,
+      "beta": 4,
+      "posts": 3,
       "successes": 0,
       "totalScore": 0
     },
@@ -38,8 +38,8 @@
     },
     "console-dev": {
       "alpha": 1,
-      "beta": 2,
-      "posts": 1,
+      "beta": 3,
+      "posts": 2,
       "successes": 0,
       "totalScore": 0
     }
