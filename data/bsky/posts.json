@@ -407,10 +407,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-15T23:17:18.283Z"
   },
   {
     "id": "c9ddc835-c886-4bc2-b348-e4f305be333b",
@@ -428,6 +433,30 @@
       "name": "creatorhub",
       "oneLiner": "多平台内容監控と采集のWeb面板",
       "message": "抖音や小红書、快手をまとめて扱うWeb面板です。複数の投稿元を見たい人は一度これで整理してみるとよさそうです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
+  },
+  {
+    "id": "8ae330d9-87bd-4138-8688-d225808ad04f",
+    "date": "2026-09-16",
+    "postedAt": "2026-09-15T23:17:18.715Z",
+    "sourceId": "ledger",
+    "itemId": "ledger-motion",
+    "text": "【海外で定着したツール】Motion：AIで予定を組み直すカレンダー【顧客 10 万】\n会議に合わせてタスクを自動で組み直すAIのプロジェクト管理カレンダーです。予定が詰まりがちな人は一度試すと、調整の手間を減らせます。\nhttps://www.usemotion.com/",
+    "url": "https://www.usemotion.com/",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvlr2gka7w2i",
+    "cid": "bafyreieka52vqldgqf5xic6dku2vih6mtoct65eyz4565dmdqqlijo5dh4",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvlr2gka7w2i",
+    "dryRun": false,
+    "digest": {
+      "name": "Motion",
+      "oneLiner": "AIで予定を組み直すカレンダー",
+      "message": "会議に合わせてタスクを自動で組み直すAIのプロジェクト管理カレンダーです。予定が詰まりがちな人は一度試すと、調整の手間を減らせます。",
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
