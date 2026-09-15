@@ -262,10 +262,15 @@
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },
-    "metrics": null,
-    "score": null,
-    "reward": null,
-    "measuredAt": null
+    "metrics": {
+      "likeCount": 0,
+      "repostCount": 0,
+      "replyCount": 0,
+      "quoteCount": 0
+    },
+    "score": 0,
+    "reward": 0,
+    "measuredAt": "2026-09-15T05:17:53.968Z"
   },
   {
     "id": "2383bed3-27f3-4027-8d01-9f2532a0c8d2",
@@ -331,6 +336,30 @@
       "name": "Archify",
       "oneLiner": "HTMLの構成図を作る",
       "message": "HTMLの構成図を作りたい人向けのツールです。ページの構造を手早く見直したいときに試しやすいです。",
+      "kind": "サービス・アプリ",
+      "model": "gpt-5.4-mini"
+    },
+    "metrics": null,
+    "score": null,
+    "reward": null,
+    "measuredAt": null
+  },
+  {
+    "id": "0a954d51-530c-4cbc-81f7-cf6a9110e848",
+    "date": "2026-09-15",
+    "postedAt": "2026-09-15T05:17:54.398Z",
+    "sourceId": "github-new-repos",
+    "itemId": "gh-Shpigford/knockoff",
+    "text": "【海外で話題のツール】knockoff：Amazonの疑似ブランド品を除く【GitHub・★2,020】\nAmazonで買い物する人向けに、疑似ブランドの品を除くChrome拡張です。商品選びで迷う場面で、一度試してみる価値があります。\nhttps://github.com/Shpigford/knockoff",
+    "url": "https://github.com/Shpigford/knockoff",
+    "uri": "at://did:plc:cw5teuuqecefnsxu62afidwd/app.bsky.feed.post/3mvjuqgn3cm2i",
+    "cid": "bafyreidxmr6kxdnbswpv52f537x6hvfsasj7issbjygfggjczwmo522pgq",
+    "postUrl": "https://bsky.app/profile/foreword.project-haru.org/post/3mvjuqgn3cm2i",
+    "dryRun": false,
+    "digest": {
+      "name": "knockoff",
+      "oneLiner": "Amazonの疑似ブランド品を除く",
+      "message": "Amazonで買い物する人向けに、疑似ブランドの品を除くChrome拡張です。商品選びで迷う場面で、一度試してみる価値があります。",
       "kind": "サービス・アプリ",
       "model": "gpt-5.4-mini"
     },

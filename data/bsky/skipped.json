@@ -106,5 +106,17 @@
     "sourceId": "hackernews",
     "kind": "ライブラリ・部品",
     "at": "2026-09-15T01:30:49.666Z"
+  },
+  {
+    "itemId": "gh-elie222/rakazo",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-15T05:17:54.398Z"
+  },
+  {
+    "itemId": "gh-Kritt-ai/open-kritt",
+    "sourceId": "github-new-repos",
+    "kind": "ライブラリ・部品",
+    "at": "2026-09-15T05:17:54.398Z"
   }
 ]
